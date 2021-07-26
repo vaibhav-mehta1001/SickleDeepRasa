@@ -1,0 +1,450 @@
+version: '2.0'
+config:
+  store_entities_as_slots: true
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet:
+    use_entities: true
+- goodbye:
+    use_entities: true
+- affirm:
+    use_entities: true
+- deny:
+    use_entities: true
+- mood_great:
+    use_entities: true
+- mood_unhappy:
+    use_entities: true
+- bot_challenge:
+    use_entities: true
+- graded_response:
+    use_entities: true
+- number:
+    use_entities: true
+- EXTERNAL_reminder:
+    use_entities: true
+entities: []
+slots:
+  consent:
+    type: rasa.shared.core.slots.BooleanSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  gender:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  last_name:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  genotype:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  age:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  prendre_du_recul:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  employment:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  atteindre_des_objectifs:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  surmont_les_obstacles:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  faire_face_au_stress:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  demander_du_soutien:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  maintenir_la_motivation:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  choisir_de_maniere_informe:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  Remettre_en_question:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  Réduire_des_douleurs:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  Vivre_sans_être_interrompu_par_la_maladie:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  Empêcher_les_perturbations_nocturnes:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  Gérer_alternativement_les_douleurs:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  Contrôler_la_fatigue:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  Gérer_la_dépression:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  Vivre_de_manière_autonome:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  Vivre_sans_limites:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  Surmonter_les_frustrations:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  requested_slot:
+    type: rasa.shared.core.slots.UnfeaturizedSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+responses:
+  utter_greet:
+  - text: Hey! How are you?
+  utter_cheer_up:
+  - image: https://i.imgur.com/nGF1K8f.jpg
+    text: 'Here is something to cheer you up:'
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_submit:
+  - text: Thanks for filling the form
+  utter_consent:
+  - buttons:
+    - payload: /affirm
+      title: Yes
+    - payload: /deny
+      title: No
+    text: Hi! Is it okay if I ask you some questions about how you're feeling?
+  utter_ask_gender:
+  - text: De quel sexe es-tu? Il n'y a que deux options pour l'instant ca mais tu pourras toujours modifier cela quand tu veux
+  utter_ask_age:
+  - text: Quel âge as-tu?
+  utter_ask_employment:
+  - text: Est-tu actuellement employé (ou entrepreneur)?
+  utter_ask_genotype:
+  - text: Quel est ton génotype?
+  utter_ask_prendre_du_recul:
+  - buttons:
+    - payload: Tout à fait d'accord
+      title: Tout à fait d'accord
+    - payload: D'accord
+      title: D'accord
+    - payload: Indifférent
+      title: Indifférent
+    - payload: Pas d'accord
+      title: Pas d'accord
+    - payload: Pas du tout d'accord
+      title: Pas du tout d'accord
+    text: En matière de gestion de la drépanocytose, je pense savoir quels sont les aspects dont je suis insatisfait?
+  utter_ask_atteindre_des_objectifs:
+  - buttons:
+    - payload: Tout à fait d'accord
+      title: Tout à fait d'accord
+    - payload: D'accord
+      title: D'accord
+    - payload: Indifférent
+      title: Indifférent
+    - payload: Pas d'accord
+      title: Pas d'accord
+    - payload: Pas du tout d'accord
+      title: Pas du tout d'accord
+    text: En général, je pense pouvoir essayer différentes manières pour surmonter les obstacles qui entravent l'atteinte de mes objectifs en matière de gestion de la drépanocytose?
+  utter_ask_surmont_les_obstacles:
+  - buttons:
+    - payload: Tout à fait d'accord
+      title: Tout à fait d'accord
+    - payload: D'accord
+      title: D'accord
+    - payload: Indifférent
+      title: Indifférent
+    - payload: Pas d'accord
+      title: Pas d'accord
+    - payload: Pas du tout d'accord
+      title: Pas du tout d'accord
+    text: En général, je pense pouvoir essayer différentes manières pour surmonter les obstacles qui entravent l'atteinte de mes objectifs en matière de gestion de la drépanocytose?
+  utter_ask_faire_face_au_stress:
+  - buttons:
+    - payload: Tout à fait d'accord
+      title: Tout à fait d'accord
+    - payload: D'accord
+      title: D'accord
+    - payload: Indifférent
+      title: Indifférent
+    - payload: Pas d'accord
+      title: Pas d'accord
+    - payload: Pas du tout d'accord
+      title: Pas du tout d'accord
+    text: En général, je pense connaître les moyens positifs que j'utilise pour faire face au stress que provoque la drépanocytose?
+  utter_ask_demander_du_soutien:
+  - buttons:
+    - payload: Tout à fait d'accord
+      title: Tout à fait d'accord
+    - payload: D'accord
+      title: D'accord
+    - payload: Indifférent
+      title: Indifférent
+    - payload: Pas d'accord
+      title: Pas d'accord
+    - payload: Pas du tout d'accord
+      title: Pas du tout d'accord
+    text: Lorsque j'en ai besoin, je pense pouvoir demander du soutien pour vivre avec et prendre soin de ma drépanocytose?
+  utter_ask_maintenir_la_motivation:
+  - buttons:
+    - payload: Tout à fait d'accord
+      title: Tout à fait d'accord
+    - payload: D'accord
+      title: D'accord
+    - payload: Indifférent
+      title: Indifférent
+    - payload: Pas d'accord
+      title: Pas d'accord
+    - payload: Pas du tout d'accord
+      title: Pas du tout d'accord
+    text: En général, je sais ce qui m'aide à rester motiver pour prendre soin de ma drépanocytose?
+  utter_ask_choisir_de_maniere_informe:
+  - buttons:
+    - payload: Tout à fait d'accord
+      title: Tout à fait d'accord
+    - payload: D'accord
+      title: D'accord
+    - payload: Indifférent
+      title: Indifférent
+    - payload: Pas d'accord
+      title: Pas d'accord
+    - payload: Pas du tout d'accord
+      title: Pas du tout d'accord
+    text: En général, j'en sais suffisamment sur la drépanocytose pour choisir ce qui est bon pour moi?
+  utter_ask_Remettre_en_question:
+  - buttons:
+    - payload: Tout à fait d'accord
+      title: Tout à fait d'accord
+    - payload: D'accord
+      title: D'accord
+    - payload: Indifférent
+      title: Indifférent
+    - payload: Pas d'accord
+      title: Pas d'accord
+    - payload: Pas du tout d'accord
+      title: Pas du tout d'accord
+    text: En général, je suis capable de comprendre si cela vaut la peine de changer ma façon de prendre soin de ma drépanocytose?
+  utter_ask_Réduire_des_douleurs:
+  - buttons:
+    - payload: Tout à fait d'accord
+      title: Tout à fait d'accord
+    - payload: D'accord
+      title: D'accord
+    - payload: Indifférent
+      title: Indifférent
+    - payload: Pas d'accord
+      title: Pas d'accord
+    - payload: Pas du tout d'accord
+      title: Pas du tout d'accord
+    text: En général, je suis sûr(e) et certain(e) de pouvoir réduire des douleurs au maximum?
+  utter_ask_Vivre_sans_être_interrompu_par_la_maladie:
+  - buttons:
+    - payload: Tout à fait d'accord
+      title: Tout à fait d'accord
+    - payload: D'accord
+      title: D'accord
+    - payload: Indifférent
+      title: Indifférent
+    - payload: Pas d'accord
+      title: Pas d'accord
+    - payload: Pas du tout d'accord
+      title: Pas du tout d'accord
+    text: 'En général, je suis  sûr(e) et certain(e) de pouvoir, au quotidien, faire tout ce que je veux, sans interruption causée par la maladie (ex: douleurs, fatigue)?'
+  utter_ask_Empêcher_les_perturbations_nocturnes:
+  - buttons:
+    - payload: Tout à fait d'accord
+      title: Tout à fait d'accord
+    - payload: D'accord
+      title: D'accord
+    - payload: Indifférent
+      title: Indifférent
+    - payload: Pas d'accord
+      title: Pas d'accord
+    - payload: Pas du tout d'accord
+      title: Pas du tout d'accord
+    text: A quel point es-tu sûr(e) et certain(e) de pouvoir empêcher les douleurs d'interférér avec ton sommeil??
+  utter_ask_Gérer_alternativement_les_douleurs:
+  - buttons:
+    - payload: Tout à fait d'accord
+      title: Tout à fait d'accord
+    - payload: D'accord
+      title: D'accord
+    - payload: Indifférent
+      title: Indifférent
+    - payload: Pas d'accord
+      title: Pas d'accord
+    - payload: Pas du tout d'accord
+      title: Pas du tout d'accord
+    text: A quel point es-tu sûr(e) et certain(e) de pouvoir réduire les douleurs causées par la drépanocytose en utilisant des méthodes autres que la prise de médicaments??
+  utter_ask_Contrôler la fatigue:
+  - buttons:
+    - payload: Tout à fait d'accord
+      title: Tout à fait d'accord
+    - payload: D'accord
+      title: D'accord
+    - payload: Indifférent
+      title: Indifférent
+    - payload: Pas d'accord
+      title: Pas d'accord
+    - payload: Pas du tout d'accord
+      title: Pas du tout d'accord
+    text: 'En général, je suis sûr(e) et certain(e) de pouvoir contrôler ton état de fatigue? Par ex: fréquence, moment dans la journée, activités que tu fais'
+  utter_ask_Gérer_la_dépression:
+  - buttons:
+    - payload: Tout à fait d'accord
+      title: Tout à fait d'accord
+    - payload: D'accord
+      title: D'accord
+    - payload: Indifférent
+      title: Indifférent
+    - payload: Pas d'accord
+      title: Pas d'accord
+    - payload: Pas du tout d'accord
+      title: Pas du tout d'accord
+    text: En général, je suis sûr(e) et certain(e) de pouvoir faire quelque chose pour m'aider à me sentir mieux lorsque je suis triste, déprimé(e) ou d'humeur maussade??
+  utter_ask_Vivre_de_manière_autonome:
+  - buttons:
+    - payload: Tout à fait d'accord
+      title: Tout à fait d'accord
+    - payload: D'accord
+      title: D'accord
+    - payload: Indifférent
+      title: Indifférent
+    - payload: Pas d'accord
+      title: Pas d'accord
+    - payload: Pas du tout d'accord
+      title: Pas du tout d'accord
+    text: Par rapport aux autres personnes atteintes de la drépanocytose, je suis  sûr(e) et certain(e) de pouvoir gérer ma vie quotidienne comme bon me semble?
+  utter_ask_Vivre_sans_limites:
+  - buttons:
+    - payload: Tout à fait d'accord
+      title: Tout à fait d'accord
+    - payload: D'accord
+      title: D'accord
+    - payload: Indifférent
+      title: Indifférent
+    - payload: Pas d'accord
+      title: Pas d'accord
+    - payload: Pas du tout d'accord
+      title: Pas du tout d'accord
+    text: En général, je suis  sûr(e) et certain(e) de pouvoir gérer les symptômes de la drépanocytose afin de ne pas être limité et pouvoir faire ce que j'aime?
+  utter_ask_Surmonte_les_frustrations:
+  - buttons:
+    - payload: Tout à fait d'accord
+      title: Tout à fait d'accord
+    - payload: D'accord
+      title: D'accord
+    - payload: Indifférent
+      title: Indifférent
+    - payload: Pas d'accord
+      title: Pas d'accord
+    - payload: Pas du tout d'accord
+      title: Pas du tout d'accord
+    text: En général, je suis sûr(e) et certain(e) de pouvoir surmonter la frustration liée à la drépanocytose?
+actions:
+- validate_name_form
+- utter_submit
+- utter_consent
+- remind_questionnaire
+forms:
+  name_form:
+    required_slots:
+      Contrôler_la_fatigue:
+      - type: from_text
+      Empêcher_les_perturbations_nocturnes:
+      - type: from_text
+      Gérer_alternativement_les_douleurs:
+      - type: from_text
+      Gérer_la_dépression:
+      - type: from_text
+      Remettre_en_question:
+      - type: from_text
+      Réduire_des_douleurs:
+      - type: from_text
+      Surmonter_les_frustrations:
+      - type: from_text
+      Vivre_de_manière_autonome:
+      - type: from_text
+      Vivre_sans_limites:
+      - type: from_text
+      Vivre_sans_être_interrompu_par_la_maladie:
+      - type: from_text
+      age:
+      - type: from_text
+      atteindre_des_objectifs:
+      - type: from_text
+      choisir_de_maniere_informe:
+      - type: from_text
+      demander_du_soutien:
+      - type: from_text
+      employment:
+      - type: from_text
+      faire_face_au_stress:
+      - type: from_text
+      gender:
+      - type: from_text
+      maintenir_la_motivation:
+      - type: from_text
+      prendre_du_recul:
+      - type: from_text
+      surmont_les_obstacles:
+      - type: from_text
+e2e_actions: []
