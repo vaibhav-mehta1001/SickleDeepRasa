@@ -1,14 +1,5 @@
 version: "2.0"
-
 stories:
-
-#- story: happy path
-#  steps:
-#  - intent: greet
-#  - action: utter_greet
-#  - intent: mood_great
-#  - action: utter_happy
-#
 - story: happy path 1
   steps:
   - intent: greet
@@ -16,21 +7,219 @@ stories:
   - intent: affirm
   - action: name_form
   - active_loop: name_form
-
 - story: sad path 1
   steps:
-    - intent: greet
-    - action: utter_consent
-    - intent: deny
-    - action: utter_goodbye
-#
-#- story: sad path 2
-#  steps:
-#  - intent: greet
-#  - action: utter_greet
-#  - intent: mood_unhappy
-#  - action: utter_cheer_up
-#  - action: utter_did_that_help
-#  - intent: deny
-#  - action: utter_goodbye
-#
+  - intent: greet
+  - action: utter_consent
+  - intent: deny
+  - action: utter_goodbye
+- story: Story from Conversation ID 4c7d2c8b8f604d30ace8c42ceb88cd10
+  steps:
+  - intent: greet
+  - action: utter_consent
+  - intent: affirm
+  - action: name_form
+  - active_loop: name_form
+  - slot_was_set:
+    - requested_slot: Contrôler_la_fatigue
+  - intent: greet
+  - action: name_form
+  - slot_was_set:
+    - Contrôler_la_fatigue: null
+  - slot_was_set:
+    - requested_slot: Contrôler_la_fatigue
+  - intent: mood_unhappy
+  - action: name_form
+  - slot_was_set:
+    - Contrôler_la_fatigue: null
+  - slot_was_set:
+    - requested_slot: Contrôler_la_fatigue
+  - intent: greet
+  - action: name_form
+  - slot_was_set:
+    - Contrôler_la_fatigue: Indifférent
+  - slot_was_set:
+    - requested_slot: Empêcher_les_perturbations_nocturnes
+  - intent: greet
+  - action: name_form
+  - slot_was_set:
+    - Empêcher_les_perturbations_nocturnes: D'accord
+  - slot_was_set:
+    - requested_slot: Gérer_alternativement_les_douleurs
+  - intent: affirm
+  - action: name_form
+  - slot_was_set:
+    - Gérer_alternativement_les_douleurs: Tout à fait d'accord
+  - slot_was_set:
+    - requested_slot: Gérer_la_dépression
+  - intent: greet
+  - action: name_form
+  - slot_was_set:
+    - Gérer_la_dépression: D'accord
+  - slot_was_set:
+    - requested_slot: Remettre_en_question
+  - intent: greet
+  - action: name_form
+  - slot_was_set:
+    - Remettre_en_question: Pas d'accord
+  - slot_was_set:
+    - requested_slot: Réduire_des_douleurs
+  - intent: affirm
+  - action: name_form
+  - slot_was_set:
+    - Réduire_des_douleurs: Tout à fait d'accord
+  - slot_was_set:
+    - requested_slot: Surmonter_les_frustrations
+  - intent: restart
+  - action: action_restart
+  - intent: greet
+  - action: utter_consent
+  - intent: affirm
+  - action: name_form
+  - active_loop: name_form
+  - slot_was_set:
+    - requested_slot: Contrôler_la_fatigue
+  - intent: restart
+  - action: action_restart
+  - intent: greet
+  - action: utter_consent
+  - intent: affirm
+  - action: name_form
+  - active_loop: name_form
+  - slot_was_set:
+    - requested_slot: Contrôler_la_fatigue
+  - slot_was_set:
+    - requested_slot: Contrôler_la_fatigue
+  - intent: greet
+  - action: utter_consent
+  - intent: restart
+  - action: action_restart
+  - intent: greet
+  - action: utter_consent
+  - intent: affirm
+  - action: name_form
+  - active_loop: name_form
+  - slot_was_set:
+    - requested_slot: Contrôler_la_fatigue
+  - intent: greet
+  - action: name_form
+  - slot_was_set:
+    - Contrôler_la_fatigue: Tout à fait d'accord
+  - slot_was_set:
+    - requested_slot: Empêcher_les_perturbations_nocturnes
+  - intent: greet
+  - action: name_form
+  - slot_was_set:
+    - Empêcher_les_perturbations_nocturnes: D'accord
+  - slot_was_set:
+    - requested_slot: Gérer_alternativement_les_douleurs
+  - intent: greet
+  - action: name_form
+  - slot_was_set:
+    - Gérer_alternativement_les_douleurs: D'accord
+  - slot_was_set:
+    - requested_slot: Gérer_la_dépression
+  - intent: greet
+  - action: name_form
+  - slot_was_set:
+    - Gérer_la_dépression: Tout à fait d'accord
+  - slot_was_set:
+    - requested_slot: Remettre_en_question
+  - intent: greet
+  - action: name_form
+  - slot_was_set:
+    - Remettre_en_question: D'accord
+  - slot_was_set:
+    - requested_slot: Réduire_des_douleurs
+  - intent: greet
+  - action: name_form
+  - slot_was_set:
+    - Réduire_des_douleurs: Indifférent
+  - slot_was_set:
+    - requested_slot: Surmonter_les_frustrations
+  - intent: affirm
+  - action: name_form
+  - slot_was_set:
+    - Surmonter_les_frustrations: Pas du tout d'accord
+  - slot_was_set:
+    - requested_slot: Vivre_de_manière_autonome
+  - intent: greet
+  - action: name_form
+  - slot_was_set:
+    - Vivre_de_manière_autonome: Indifférent
+  - slot_was_set:
+    - requested_slot: Vivre_sans_limites
+  - intent: affirm
+  - action: name_form
+  - slot_was_set:
+    - Vivre_sans_limites: Pas d'accord
+  - slot_was_set:
+    - requested_slot: Vivre_sans_être_interrompu_par_la_maladie
+  - intent: greet
+  - action: name_form
+  - slot_was_set:
+    - Vivre_sans_être_interrompu_par_la_maladie: Tout à fait d'accord
+  - slot_was_set:
+    - requested_slot: age
+  - intent: deny
+  - action: name_form
+  - slot_was_set:
+    - age: '21'
+  - slot_was_set:
+    - requested_slot: atteindre_des_objectifs
+  - intent: greet
+  - action: name_form
+  - slot_was_set:
+    - atteindre_des_objectifs: D'accord
+  - slot_was_set:
+    - requested_slot: choisir_de_maniere_informe
+  - intent: greet
+  - action: name_form
+  - slot_was_set:
+    - choisir_de_maniere_informe: Tout à fait d'accord
+  - slot_was_set:
+    - requested_slot: demander_du_soutien
+  - intent: greet
+  - action: name_form
+  - slot_was_set:
+    - demander_du_soutien: D'accord
+  - slot_was_set:
+    - requested_slot: employment
+  - intent: greet
+  - action: name_form
+  - slot_was_set:
+    - employment: student
+  - slot_was_set:
+    - requested_slot: faire_face_au_stress
+  - intent: greet
+  - action: name_form
+  - slot_was_set:
+    - faire_face_au_stress: Tout à fait d'accord
+  - slot_was_set:
+    - requested_slot: gender
+  - intent: greet
+  - action: name_form
+  - slot_was_set:
+    - gender: male
+  - slot_was_set:
+    - requested_slot: maintenir_la_motivation
+  - intent: greet
+  - action: name_form
+  - slot_was_set:
+    - maintenir_la_motivation: D'accord
+  - slot_was_set:
+    - requested_slot: prendre_du_recul
+  - intent: affirm
+  - action: name_form
+  - slot_was_set:
+    - prendre_du_recul: Pas du tout d'accord
+  - slot_was_set:
+    - requested_slot: surmont_les_obstacles
+  - intent: greet
+  - action: name_form
+  - slot_was_set:
+    - surmont_les_obstacles: D'accord
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_submit
