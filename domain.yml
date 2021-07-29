@@ -25,6 +25,8 @@ intents:
     use_entities: true
 - EXTERNAL_reminder:
     use_entities: true
+- restart:
+    use_entities: true
 entities: []
 slots:
   consent:
@@ -334,7 +336,7 @@ responses:
     - payload: Pas du tout d'accord
       title: Pas du tout d'accord
     text: A quel point es-tu sûr(e) et certain(e) de pouvoir réduire les douleurs causées par la drépanocytose en utilisant des méthodes autres que la prise de médicaments??
-  utter_ask_Contrôler la fatigue:
+  utter_ask_Contrôler_la_fatigue:
   - buttons:
     - payload: Tout à fait d'accord
       title: Tout à fait d'accord
@@ -404,6 +406,7 @@ actions:
 - utter_submit
 - utter_consent
 - remind_questionnaire
+- draw_graph
 forms:
   name_form:
     required_slots:
