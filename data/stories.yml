@@ -13,3 +13,17 @@ stories:
   - action: utter_consent
   - intent: deny
   - action: utter_goodbye
+- story: happy path daily
+  steps:
+  - intent: show_questionairre
+  - action: utter_daily_q_confirm
+  - intent: affirm
+  - action: utter_positive_affirmation_qs
+  - action: daily_form
+  - active_loop:  daily_form
+- story: sad path daily
+  steps:
+  - intent: show_questionairre
+  - action: utter_daily_q_confirm
+  - intent: deny
+  - action: utter_goodbye

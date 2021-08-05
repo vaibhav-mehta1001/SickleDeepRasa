@@ -1,7 +1,7 @@
-language: en
+language: fr
 pipeline:
 - name: SpacyNLP
-  model: en_core_web_md
+  model: fr_core_news_md
   case_sensitive: false
 - name: SpacyTokenizer
 - name: SpacyFeaturizer
