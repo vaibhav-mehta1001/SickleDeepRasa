@@ -13,6 +13,21 @@ class ValidateNameForm(FormValidationAction):
     def name(self) -> Text:
         return "validate_name_form"
 
+    async def required_slots(self, slots_mapped_in_domain: List[Text], dispatcher: CollectingDispatcher,
+                             tracker: Tracker, domain: DomainDict, ) -> Optional[List[Text]]:
+
+        slots_mapped_in_domain_ordered = ['gender', 'age', 'genotype', 'employment', 'prendre_du_recul',
+                                          'atteindre_des_objectifs',
+                                          'surmont_les_obstacles', 'faire_face_au_stress', 'demander_du_soutien',
+                                          'maintenir_la_motivation', 'choisir_de_maniere_informe',
+                                          'Remettre_en_question', 'Réduire_des_douleurs',
+                                          'Vivre_sans_être_interrompu_par_la_maladie',
+                                          'Empêcher_les_perturbations_nocturnes',
+                                          'Gérer_alternativement_les_douleurs', 'Contrôler_la_fatigue',
+                                          'Gérer_la_dépression', 'Vivre_de_manière_autonome', 'Vivre_sans_limites',
+                                          'Surmonter_les_frustrations']
+        return slots_mapped_in_domain_ordered
+
     def check_options(self, user_choice):
         options = {"Tout à fait d'accord",
                    "D'accord",
@@ -317,28 +332,17 @@ class ValidateDailyForm(FormValidationAction):
     def name(self) -> Text:
         return "validate_daily_form"
 
-    # async def required_slots(
-    #         self,
-    #         slots_mapped_in_domain: List[Text],
-    #         dispatcher: "CollectingDispatcher",
-    #         tracker: "Tracker",
-    #         domain: "DomainDict",
-    # ) -> Optional[List[Text]]:
-    #     additional_slots = [tracker.slots.get("douleurs")]
-    #     if tracker.slots.get("douleurs") == "Aucune douleur":
-    #         # If the user wants to sit outside, ask
-    #         # if they want to sit in the shade or in the sun.
-    #         # additional_slots.append("pain_type")
-    #         additional_slots.append("bodypart")
-    #         additional_slots.append("painkiller_count")
-    #         additional_slots.append("alternatives")
-    #
-    #     # additional_slots.append("painkiller_count")
-    #     if tracker.slots.get("painkiller_count") != "0" and tracker.slots.get("painkiller_count") is not None:
-    #         # additional_slots.append("painkiller_count")
-    #         additional_slots.append("lesquelles")
-    #
-    #     return additional_slots + slots_mapped_in_domain
+    async def required_slots(self, slots_mapped_in_domain: List[Text], dispatcher: CollectingDispatcher,
+                             tracker: Tracker, domain: DomainDict, ) -> Optional[List[Text]]:
+
+        slots_mapped_in_domain_ordered = ['journee', 'humeur', 'dormi_la_nuit', 'globalment', 'effort_exagéré'
+                                                                                              'senti_plus_fatigue',
+                                          'senti_plus_stress', 'froid_ou_ressenti', 'perdu_appetit', 'dehydrate',
+                                          'rapidement', 'urine', 'douleurs',
+                                          'bodypart', 'painkiller_count', 'lesquelles', 'alternatives', 'activites',
+                                          'pouvoir', 'porquoi',
+                                          'chose_de_particular', 'que_tu_souhaites']
+        return slots_mapped_in_domain_ordered
 
     def validate_journee(
             self,

@@ -756,45 +756,47 @@ actions:
 forms:
   name_form:
     required_slots:
-      Contrôler_la_fatigue:
+      gender:
       - type: from_text
+      age:
+        - type: from_text
+      genotype:
+        - type: from_text
+      employment:
+      - type: from_text
+      prendre_du_recul:
+        - type: from_text
+      atteindre_des_objectifs:
+        - type: from_text
+      surmont_les_obstacles:
+        - type: from_text
+      faire_face_au_stress:
+        - type: from_text
+      demander_du_soutien:
+        - type: from_text
+      maintenir_la_motivation:
+        - type: from_text
+      choisir_de_maniere_informe:
+        - type: from_text
+      Remettre_en_question:
+        - type: from_text
+      Réduire_des_douleurs:
+        - type: from_text
+      Vivre_sans_être_interrompu_par_la_maladie:
+        - type: from_text
       Empêcher_les_perturbations_nocturnes:
-      - type: from_text
+        - type: from_text
       Gérer_alternativement_les_douleurs:
+        - type: from_text
+      Contrôler_la_fatigue:
       - type: from_text
       Gérer_la_dépression:
       - type: from_text
-      Remettre_en_question:
-      - type: from_text
-      Réduire_des_douleurs:
-      - type: from_text
-      Surmonter_les_frustrations:
-      - type: from_text
       Vivre_de_manière_autonome:
-      - type: from_text
+        - type: from_text
       Vivre_sans_limites:
-      - type: from_text
-      Vivre_sans_être_interrompu_par_la_maladie:
-      - type: from_text
-      age:
-      - type: from_text
-      atteindre_des_objectifs:
-      - type: from_text
-      choisir_de_maniere_informe:
-      - type: from_text
-      demander_du_soutien:
-      - type: from_text
-      employment:
-      - type: from_text
-      faire_face_au_stress:
-      - type: from_text
-      gender:
-      - type: from_text
-      maintenir_la_motivation:
-      - type: from_text
-      prendre_du_recul:
-      - type: from_text
-      surmont_les_obstacles:
+        - type: from_text
+      Surmonter_les_frustrations:
       - type: from_text
   daily_form:
     required_slots:
