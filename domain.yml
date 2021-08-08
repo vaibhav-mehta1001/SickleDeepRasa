@@ -29,6 +29,8 @@ intents:
     use_entities: true
 - restart:
     use_entities: true
+- start:
+    use_entities: true
 entities: []
 slots:
   consent:
@@ -747,6 +749,8 @@ responses:
   - text: Génial!
   utter_welcome:
   - text: Hi, I am Trevor a bot designed to help you manage sickle cell better!
+  utter_daily_inform:
+  - text: I'll also need to ask you some daily questions. Let me know whenever you feel like answering them. In the meanwhile you can ask me questions have about SCD.
 actions:
 - validate_name_form
 - utter_submit

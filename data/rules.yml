@@ -17,6 +17,7 @@ rules:
   - slot_was_set:
     - requested_slot: null
   - action: utter_submit
+  - action: utter_daily_inform
 - rule: Submit daily form
   condition:
   - active_loop: daily_form
@@ -26,3 +27,4 @@ rules:
   - slot_was_set:
     - requested_slot: null
   - action: utter_submit
+  - action: utter_daily_inform
