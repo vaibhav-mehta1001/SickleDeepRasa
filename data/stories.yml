@@ -2,7 +2,8 @@ version: "2.0"
 stories:
 - story: happy path 1
   steps:
-  - intent: greet
+  - intent: start
+  - action: utter_welcome
   - action: utter_consent
   - intent: affirm
   - action: name_form
@@ -20,7 +21,7 @@ stories:
   - intent: affirm
   - action: utter_positive_affirmation_qs
   - action: daily_form
-  - active_loop:  daily_form
+  - active_loop: daily_form
 - story: sad path daily
   steps:
   - intent: show_questionairre

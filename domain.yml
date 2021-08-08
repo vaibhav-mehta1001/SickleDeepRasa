@@ -515,236 +515,238 @@ responses:
     text: En général, je suis sûr(e) et certain(e) de pouvoir surmonter la frustration liée à la drépanocytose?
   utter_ask_journee:
   - buttons:
-          - payload:  Pas du tout bien
-            title:  Pas du tout bien
-          - payload: Pas très bien
-            title: Pas très bien
-          - payload: Normalement
-            title: Normalement
-          - payload: Très bien
-            title: Très bien
-          - payload: Parfaitement bien
-            title: Parfaitement bien
+    - payload: Pas du tout bien
+      title: Pas du tout bien
+    - payload: Pas très bien
+      title: Pas très bien
+    - payload: Normalement
+      title: Normalement
+    - payload: Très bien
+      title: Très bien
+    - payload: Parfaitement bien
+      title: Parfaitement bien
     text: Ta journée s'est bien passée ?
   utter_ask_dormi_la_nuit:
-    - buttons:
-        - payload:  Pas du tout bien
-          title:  Pas du tout bien
-        - payload: Pas très bien
-          title: Pas très bien
-        - payload: Normalement
-          title: Normalement
-        - payload: Très bien
-          title: Très bien
-        - payload: Parfaitement bien
-          title: Parfaitement bien
-      text: As-tu bien dormi la nuit dernière ??
+  - buttons:
+    - payload: Pas du tout bien
+      title: Pas du tout bien
+    - payload: Pas très bien
+      title: Pas très bien
+    - payload: Normalement
+      title: Normalement
+    - payload: Très bien
+      title: Très bien
+    - payload: Parfaitement bien
+      title: Parfaitement bien
+    text: As-tu bien dormi la nuit dernière ??
   utter_ask_humeur:
   - buttons:
-          - payload:  Pas du tout bien
-            title:  Pas du tout bien
-          - payload: Pas très bien
-            title: Pas très bien
-          - payload: Normale
-            title: Normale
-          - payload: Très Bonne
-            title: Très Bonne
-          - payload: Parfaitement bien
-            title: Parfaitement bien
+    - payload: Pas du tout bien
+      title: Pas du tout bien
+    - payload: Pas très bien
+      title: Pas très bien
+    - payload: Normale
+      title: Normale
+    - payload: Très Bonne
+      title: Très Bonne
+    - payload: Parfaitement bien
+      title: Parfaitement bien
     text: Ton humeur était-elle bonne ?
   utter_ask_globalment:
   - text: Comment te sens-tu globalement ?
   utter_ask_effort_exagéré:
-    - buttons:
-        - payload:  Pas du tout
-          title:  Pas du tout
-        - payload: Pas vraiment
-          title: Pas vraiment
-        - payload:  Rien d'anormal
-          title:  Rien d'anormal
-        - payload: Très Bien
-          title: Très Bien
-        - payload: Un peu
-          title: Un peu
-        - payload: Beaucoup
-          title: Beaucoup
-      text: As-tu dû faire un effort exagéré aujourd'hui ? (par exemple courir après un bus)?
+  - buttons:
+    - payload: Pas du tout
+      title: Pas du tout
+    - payload: Pas vraiment
+      title: Pas vraiment
+    - payload: Rien d'anormal
+      title: Rien d'anormal
+    - payload: Très Bien
+      title: Très Bien
+    - payload: Un peu
+      title: Un peu
+    - payload: Beaucoup
+      title: Beaucoup
+    text: As-tu dû faire un effort exagéré aujourd'hui ? (par exemple courir après un bus)?
   utter_ask_senti_plus_fatigue:
-    - buttons:
-        - payload:  Pas du tout
-          title:  Pas du tout
-        - payload: Pas vraiment
-          title: Pas vraiment
-        - payload:  Rien d'anormal
-          title:  Rien d'anormal
-        - payload: Très Bien
-          title: Très Bien
-        - payload: Un peu
-          title: Un peu
-        - payload: Beaucoup
-          title: Beaucoup
-      text: T'es-tu senti plus fatigué que d'habitude ?
+  - buttons:
+    - payload: Pas du tout
+      title: Pas du tout
+    - payload: Pas vraiment
+      title: Pas vraiment
+    - payload: Rien d'anormal
+      title: Rien d'anormal
+    - payload: Très Bien
+      title: Très Bien
+    - payload: Un peu
+      title: Un peu
+    - payload: Beaucoup
+      title: Beaucoup
+    text: T'es-tu senti plus fatigué que d'habitude ?
   utter_ask_senti_plus_stress:
-    - buttons:
-        - payload:  Pas du tout
-          title:  Pas du tout
-        - payload: Pas vraiment
-          title: Pas vraiment
-        - payload:  Rien d'anormal
-          title:  Rien d'anormal
-        - payload: Très Bien
-          title: Très Bien
-        - payload: Un peu
-          title: Un peu
-        - payload: Beaucoup
-          title: Beaucoup
-      text: T'es-tu senti plus stressé ou contrarié que d'habitude ?
+  - buttons:
+    - payload: Pas du tout
+      title: Pas du tout
+    - payload: Pas vraiment
+      title: Pas vraiment
+    - payload: Rien d'anormal
+      title: Rien d'anormal
+    - payload: Très Bien
+      title: Très Bien
+    - payload: Un peu
+      title: Un peu
+    - payload: Beaucoup
+      title: Beaucoup
+    text: T'es-tu senti plus stressé ou contrarié que d'habitude ?
   utter_ask_froid_ou_ressenti:
-    - buttons:
-        - payload:  Pas du tout
-          title:  Pas du tout
-        - payload: Pas vraiment
-          title: Pas vraiment
-        - payload:  Rien d'anormal
-          title:  Rien d'anormal
-        - payload: Très Bien
-          title: Très Bien
-        - payload: Un peu
-          title: Un peu
-        - payload: Beaucoup
-          title: Beaucoup
-      text: As-tu attrapé froid ou ressenti un signe d'infection? (p. ex., frissons, éternuements, sécheresse buccale, fièvre)
+  - buttons:
+    - payload: Pas du tout
+      title: Pas du tout
+    - payload: Pas vraiment
+      title: Pas vraiment
+    - payload: Rien d'anormal
+      title: Rien d'anormal
+    - payload: Très Bien
+      title: Très Bien
+    - payload: Un peu
+      title: Un peu
+    - payload: Beaucoup
+      title: Beaucoup
+    text: As-tu attrapé froid ou ressenti un signe d'infection? (p. ex., frissons, éternuements, sécheresse buccale, fièvre)
   utter_ask_perdu_appetit:
-    - buttons:
-        - payload:  Pas du tout
-          title:  Pas du tout
-        - payload: Pas vraiment
-          title: Pas vraiment
-        - payload:  Rien d'anormal
-          title:  Rien d'anormal
-        - payload: Très Bien
-          title: Très Bien
-        - payload: Un peu
-          title: Un peu
-        - payload: Beaucoup
-          title: Beaucoup
-      text: As-tu perdu l'appétit?
+  - buttons:
+    - payload: Pas du tout
+      title: Pas du tout
+    - payload: Pas vraiment
+      title: Pas vraiment
+    - payload: Rien d'anormal
+      title: Rien d'anormal
+    - payload: Très Bien
+      title: Très Bien
+    - payload: Un peu
+      title: Un peu
+    - payload: Beaucoup
+      title: Beaucoup
+    text: As-tu perdu l'appétit?
   utter_ask_dehydrate:
-    - buttons:
-        - payload:  Pas du tout
-          title:  Pas du tout
-        - payload: Pas vraiment
-          title: Pas vraiment
-        - payload:  Rien d'anormal
-          title:  Rien d'anormal
-        - payload: Très Bien
-          title: Très Bien
-        - payload: Un peu
-          title: Un peu
-        - payload: Beaucoup
-          title: Beaucoup
-      text: T'es-tu senti déshydraté ? (par exemple, soif)?
+  - buttons:
+    - payload: Pas du tout
+      title: Pas du tout
+    - payload: Pas vraiment
+      title: Pas vraiment
+    - payload: Rien d'anormal
+      title: Rien d'anormal
+    - payload: Très Bien
+      title: Très Bien
+    - payload: Un peu
+      title: Un peu
+    - payload: Beaucoup
+      title: Beaucoup
+    text: T'es-tu senti déshydraté ? (par exemple, soif)?
   utter_ask_rapidement:
-    - buttons:
-        - payload:  Pas du tout
-          title:  Pas du tout
-        - payload: Pas vraiment
-          title: Pas vraiment
-        - payload:  Rien d'anormal
-          title:  Rien d'anormal
-        - payload: Très Bien
-          title: Très Bien
-        - payload: Un peu
-          title: Un peu
-        - payload: Beaucoup
-          title: Beaucoup
-      text: T'es-tu senti plus rapidement épuisé/essoufflé ? (p. ex., après avoir marché, monté des escaliers, s'être reposé)
+  - buttons:
+    - payload: Pas du tout
+      title: Pas du tout
+    - payload: Pas vraiment
+      title: Pas vraiment
+    - payload: Rien d'anormal
+      title: Rien d'anormal
+    - payload: Très Bien
+      title: Très Bien
+    - payload: Un peu
+      title: Un peu
+    - payload: Beaucoup
+      title: Beaucoup
+    text: T'es-tu senti plus rapidement épuisé/essoufflé ? (p. ex., après avoir marché, monté des escaliers, s'être reposé)
   utter_ask_urine:
-    - buttons:
-        - payload:  Pas du tout
-          title:  Pas du tout
-        - payload: Pas vraiment
-          title: Pas vraiment
-        - payload:  Rien d'anormal
-          title:  Rien d'anormal
-        - payload: Très Bien
-          title: Très Bien
-        - payload: Un peu
-          title: Un peu
-        - payload: Beaucoup
-          title: Beaucoup
-      text: Tes yeux ou ton urine semblaient-ils plus jaunes que d'habitude ?
+  - buttons:
+    - payload: Pas du tout
+      title: Pas du tout
+    - payload: Pas vraiment
+      title: Pas vraiment
+    - payload: Rien d'anormal
+      title: Rien d'anormal
+    - payload: Très Bien
+      title: Très Bien
+    - payload: Un peu
+      title: Un peu
+    - payload: Beaucoup
+      title: Beaucoup
+    text: Tes yeux ou ton urine semblaient-ils plus jaunes que d'habitude ?
   utter_ask_douleurs:
-    - buttons:
-        - payload:  Douleur extrême insupportable
-          title:  Douleur extrême insupportable
-        - payload: Douleur intense m'empêchant de faire la plupart de mes activités
-          title: Douleur intense m'empêchant de faire la plupart de mes activités
-        - payload:  Douleur continues supportables
-          title:  Douleur continues supportables
-        - payload: Douleur transitoires supportables
-          title: Douleur transitoires supportables
-        - payload: Aucune douleur
-          title: Aucune douleur
-      text: As-tu ressenti des douleurs liées à la drépanocytose ?
+  - buttons:
+    - payload: Douleur extrême insupportable
+      title: Douleur extrême insupportable
+    - payload: Douleur intense m'empêchant de faire la plupart de mes activités
+      title: Douleur intense m'empêchant de faire la plupart de mes activités
+    - payload: Douleur continues supportables
+      title: Douleur continues supportables
+    - payload: Douleur transitoires supportables
+      title: Douleur transitoires supportables
+    - payload: Aucune douleur
+      title: Aucune douleur
+    text: As-tu ressenti des douleurs liées à la drépanocytose ?
   utter_ask_activites:
-    - buttons:
-        - payload:  Pas du tout
-          title:  Pas du tout
-        - payload: Pas vraiment
-          title: Pas vraiment
-        - payload:  Rien d'anormal
-          title:  Rien d'anormal
-        - payload: Très Bien
-          title: Très Bien
-        - payload: Un peu
-          title: Un peu
-        - payload: Beaucoup
-          title: Beaucoup
-      text: As-tu pu reprendre vos activités habituelles?
+  - buttons:
+    - payload: Pas du tout
+      title: Pas du tout
+    - payload: Pas vraiment
+      title: Pas vraiment
+    - payload: Rien d'anormal
+      title: Rien d'anormal
+    - payload: Très Bien
+      title: Très Bien
+    - payload: Un peu
+      title: Un peu
+    - payload: Beaucoup
+      title: Beaucoup
+    text: As-tu pu reprendre vos activités habituelles?
   utter_ask_pouvoir:
-    - buttons:
-        - payload:  Pas du tout
-          title: Pas du tout
-        - payload: Pas vraiment
-          title: Pas vraiment
-        - payload: Pas sûr
-          title: Pas sûr
-        - payload: PUn peu
-          title: Un peu
-        - payload: Totalement
-          title: Totalement
-      text: As-tu eu l'impression de pouvoir prédire la douleur ?
+  - buttons:
+    - payload: Pas du tout
+      title: Pas du tout
+    - payload: Pas vraiment
+      title: Pas vraiment
+    - payload: Pas sûr
+      title: Pas sûr
+    - payload: PUn peu
+      title: Un peu
+    - payload: Totalement
+      title: Totalement
+    text: As-tu eu l'impression de pouvoir prédire la douleur ?
   utter_ask_chose_de_particular:
-      - text: Y-a-t-il quelque chose de particulier que tu as remarqué ou fait aujourd'hui ?
+  - text: Y-a-t-il quelque chose de particulier que tu as remarqué ou fait aujourd'hui ?
   utter_ask_que_tu_souhaites:
-       - text: Quelque chose d'autre que tu souhaites me dire?
+  - text: Quelque chose d'autre que tu souhaites me dire?
   utter_ask_bodypart:
-      - text: Où dans ton corps se situaient la ou les douleurs ??
+  - text: Où dans ton corps se situaient la ou les douleurs ??
   utter_ask_pain_type:
-    - text: Quel type de douleurs était-ce? ?
+  - text: Quel type de douleurs était-ce? ?
   utter_ask_painkiller_count:
-    - text: Combien d'analgésiques as-tu pris ?
+  - text: Combien d'analgésiques as-tu pris ?
   utter_ask_lesquelles:
-    - text: Lesquelles ?
+  - text: Lesquelles ?
   utter_ask_alternatives:
-    - text: As-tu fait autre chose pour soulager votre?
+  - text: As-tu fait autre chose pour soulager votre?
   utter_ask_porquoi:
-    - text:  pourquoi ?
+  - text: pourquoi ?
   utter_daily_q_confirm:
-    - buttons:
-        - payload:  /affirm
-          title: Si
-        - payload: /deny
-          title: Affirm
-      text: Vous voulez répondre au questionnaire, n'est-ce pas ?
+  - buttons:
+    - payload: /affirm
+      title: Si
+    - payload: /deny
+      title: Affirm
+    text: Vous voulez répondre au questionnaire, n'est-ce pas ?
   utter_positive_affirmation_qs:
-      - text: Génial! voici le questionnaire
-      - text: Génial! Commençons
-      - text: D'accord, commençons
-      - text: Commençons!
-      - text: Cool, commençons !
-      - text: Génial!
+  - text: Génial! voici le questionnaire
+  - text: Génial! Commençons
+  - text: D'accord, commençons
+  - text: Commençons!
+  - text: Cool, commençons !
+  - text: Génial!
+  utter_welcome:
+  - text: Hi, I am Trevor a bot designed to help you manage sickle cell better!
 actions:
 - validate_name_form
 - utter_submit
@@ -752,97 +754,95 @@ actions:
 - remind_questionnaire
 - draw_graph
 - validate_daily_form
-
 forms:
   name_form:
     required_slots:
-      gender:
-      - type: from_text
-      age:
-        - type: from_text
-      genotype:
-        - type: from_text
-      employment:
-      - type: from_text
-      prendre_du_recul:
-        - type: from_text
-      atteindre_des_objectifs:
-        - type: from_text
-      surmont_les_obstacles:
-        - type: from_text
-      faire_face_au_stress:
-        - type: from_text
-      demander_du_soutien:
-        - type: from_text
-      maintenir_la_motivation:
-        - type: from_text
-      choisir_de_maniere_informe:
-        - type: from_text
-      Remettre_en_question:
-        - type: from_text
-      Réduire_des_douleurs:
-        - type: from_text
-      Vivre_sans_être_interrompu_par_la_maladie:
-        - type: from_text
-      Empêcher_les_perturbations_nocturnes:
-        - type: from_text
-      Gérer_alternativement_les_douleurs:
-        - type: from_text
       Contrôler_la_fatigue:
+      - type: from_text
+      Empêcher_les_perturbations_nocturnes:
+      - type: from_text
+      Gérer_alternativement_les_douleurs:
       - type: from_text
       Gérer_la_dépression:
       - type: from_text
-      Vivre_de_manière_autonome:
-        - type: from_text
-      Vivre_sans_limites:
-        - type: from_text
+      Remettre_en_question:
+      - type: from_text
+      Réduire_des_douleurs:
+      - type: from_text
       Surmonter_les_frustrations:
+      - type: from_text
+      Vivre_de_manière_autonome:
+      - type: from_text
+      Vivre_sans_limites:
+      - type: from_text
+      Vivre_sans_être_interrompu_par_la_maladie:
+      - type: from_text
+      age:
+      - type: from_text
+      atteindre_des_objectifs:
+      - type: from_text
+      choisir_de_maniere_informe:
+      - type: from_text
+      demander_du_soutien:
+      - type: from_text
+      employment:
+      - type: from_text
+      faire_face_au_stress:
+      - type: from_text
+      gender:
+      - type: from_text
+      genotype:
+      - type: from_text
+      maintenir_la_motivation:
+      - type: from_text
+      prendre_du_recul:
+      - type: from_text
+      surmont_les_obstacles:
       - type: from_text
   daily_form:
     required_slots:
-      journee:
-       - type: from_text
-      humeur:
-       - type: from_text
-      dormi_la_nuit:
-        - type: from_text
-      globalment:
-         - type: from_text
-      effort_exagéré:
-           - type: from_text
-      senti_plus_fatigue:
-         - type: from_text
-      senti_plus_stress:
-         - type: from_text
-      froid_ou_ressenti:
-         - type: from_text
-      perdu_appetit:
-         - type: from_text
-      dehydrate:
-         - type: from_text
-      rapidement:
-        - type: from_text
-      urine:
-         - type: from_text
-      douleurs:
-        - type: from_text
-      bodypart:
-        - type: from_text
-      painkiller_count:
-        - type: from_text
-      lesquelles:
-        - type: from_text
-      alternatives:
-        - type: from_text
       activites:
-        - type: from_text
-      pouvoir:
-         - type: from_text
-      porquoi:
-        - type: from_text
+      - type: from_text
+      alternatives:
+      - type: from_text
+      bodypart:
+      - type: from_text
       chose_de_particular:
-        - type: from_text
+      - type: from_text
+      dehydrate:
+      - type: from_text
+      dormi_la_nuit:
+      - type: from_text
+      douleurs:
+      - type: from_text
+      effort_exagéré:
+      - type: from_text
+      froid_ou_ressenti:
+      - type: from_text
+      globalment:
+      - type: from_text
+      humeur:
+      - type: from_text
+      journee:
+      - type: from_text
+      lesquelles:
+      - type: from_text
+      painkiller_count:
+      - type: from_text
+      perdu_appetit:
+      - type: from_text
+      porquoi:
+      - type: from_text
+      pouvoir:
+      - type: from_text
       que_tu_souhaites:
-         - type: from_text
-
+      - type: from_text
+      rapidement:
+      - type: from_text
+      senti_plus_fatigue:
+      - type: from_text
+      senti_plus_stress:
+      - type: from_text
+      urine:
+      - type: from_text
 e2e_actions: []

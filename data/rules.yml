@@ -12,19 +12,17 @@ rules:
   condition:
   - active_loop: name_form
   steps:
-  - action:  name_form
+  - action: name_form
   - active_loop: null
   - slot_was_set:
     - requested_slot: null
-  # - action: draw_graph
   - action: utter_submit
 - rule: Submit daily form
   condition:
   - active_loop: daily_form
   steps:
-  - action:  daily_form
+  - action: daily_form
   - active_loop: null
   - slot_was_set:
     - requested_slot: null
-  # - action: draw_graph
   - action: utter_submit
