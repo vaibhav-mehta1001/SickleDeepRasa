@@ -285,7 +285,7 @@ responses:
       title: Yes
     - payload: /deny
       title: No
-    text: Hi! Is it okay if I ask you some questions about how you're feeling?
+    text: Great! First, I'll ask you some basic questions to understand you better
   utter_ask_gender:
   - text: De quel sexe es-tu? Il n'y a que deux options pour l'instant ca mais tu pourras toujours modifier cela quand tu veux
   utter_ask_age:

@@ -28,3 +28,24 @@ stories:
   - action: utter_daily_q_confirm
   - intent: deny
   - action: utter_goodbye
+- story: Story from Conversation ID 848c3090e7284d0296ab0bd37f39ad67
+  steps:
+  - action: utter_daily_q_confirm
+  - intent: affirm
+  - action: utter_positive_affirmation_qs
+  - action: daily_form
+  - active_loop: daily_form
+  - slot_was_set:
+    - requested_slot: journee
+  - intent: mood_unhappy
+  - action: daily_form
+  - slot_was_set:
+    - journee: Pas du tout bien
+  - slot_was_set:
+    - requested_slot: humeur
+  - intent: mood_unhappy
+  - action: daily_form
+  - slot_was_set:
+    - humeur: Pas du tout bien
+  - slot_was_set:
+    - requested_slot: dormi_la_nuit
