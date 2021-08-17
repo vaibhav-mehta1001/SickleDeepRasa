@@ -1,13 +1,44 @@
-from typing import Any, Text, Dict, List, Optional
+import base64
 
 from rasa_sdk import Action, Tracker
-from typing import Text, List, Any, Dict
+from typing import Text, List, Any, Dict, Optional
 
 from rasa_sdk import Tracker, FormValidationAction
 from rasa_sdk.events import SlotSet
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.types import DomainDict
+import plotly.graph_objects as go
 
+
+class SetInitialSlots(Action):
+    def name(self) -> Text:
+        return "action_fill_slots"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        try:
+            name = tracker.latest_message["metadata"]["message"]["from"]["first_name"]
+        except:
+            name = ""
+        # If the name is super short, it might be wrong.
+        return [SlotSet("first_name", name)]
+
+
+# class ProvideFeedback(Action):
+#     def name(self) -> Text:
+#         return "action_feedback_initial_form"
+#
+#     def run(self, dispatcher: CollectingDispatcher,
+#             tracker: Tracker,
+#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+#         try:
+#             name = tracker.latest_message["metadata"]["message"]["from"]["first_name"]
+#         except:
+#             name = ""
+#         # If the name is super short, it might be wrong.
+#         return [SlotSet("first_name", name)]
+#
 
 class ValidateNameForm(FormValidationAction):
     def name(self) -> Text:
@@ -15,17 +46,18 @@ class ValidateNameForm(FormValidationAction):
 
     async def required_slots(self, slots_mapped_in_domain: List[Text], dispatcher: CollectingDispatcher,
                              tracker: Tracker, domain: DomainDict, ) -> Optional[List[Text]]:
-
-        slots_mapped_in_domain_ordered = ['gender', 'age', 'genotype', 'employment', 'prendre_du_recul',
+        # 'gender', 'age', 'genotype', 'employment',
+        slots_mapped_in_domain_ordered = ['prendre_du_recul',
                                           'atteindre_des_objectifs',
                                           'surmont_les_obstacles', 'faire_face_au_stress', 'demander_du_soutien',
                                           'maintenir_la_motivation', 'choisir_de_maniere_informe',
-                                          'Remettre_en_question', 'Réduire_des_douleurs',
-                                          'Vivre_sans_être_interrompu_par_la_maladie',
-                                          'Empêcher_les_perturbations_nocturnes',
-                                          'Gérer_alternativement_les_douleurs', 'Contrôler_la_fatigue',
-                                          'Gérer_la_dépression', 'Vivre_de_manière_autonome', 'Vivre_sans_limites',
-                                          'Surmonter_les_frustrations']
+                                          'Remettre_en_question']
+        # 'Réduire_des_douleurs',
+        # 'Vivre_sans_être_interrompu_par_la_maladie',
+        # 'Empêcher_les_perturbations_nocturnes',
+        # 'Gérer_alternativement_les_douleurs', 'Contrôler_la_fatigue',
+        # 'Gérer_la_dépression', 'Vivre_de_manière_autonome', 'Vivre_sans_limites',
+        # 'Surmonter_les_frustrations']
         return slots_mapped_in_domain_ordered
 
     def check_options(self, user_choice):
@@ -45,13 +77,10 @@ class ValidateNameForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         """Validate `first_name` value."""
 
-        # If the name is super short, it might be wrong.
         if slot_value.isnumeric():
-            print("fff")
             return {"age": slot_value}
         else:
             dispatcher.utter_message(text="Please enter a number!")
-            print("fgfg")
             return {"age": None}
 
     def validate_prendre_du_recul(
@@ -180,151 +209,189 @@ class ValidateNameForm(FormValidationAction):
             dispatcher.utter_message(text="Please choose one of the options")
             return {"Remettre_en_question": None}
         else:
-            return {"Remettre_en_question": slot_value}
+            autonomy_result = self.draw_graph(tracker, dispatcher)
+            return {
+                "Remettre_en_question":slot_value,
+                "autonomy_result" :autonomy_result}
 
-    def validate_Réduire_des_douleurs(
-            self,
-            slot_value: Any,
-            dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: DomainDict,
-    ) -> Dict[Text, Any]:
-        """Validate `last_name` value."""
+    def draw_graph(self, tracker, dispatcher):
 
-        # If the name is super short, it might be wrong.
-        if not self.check_options(slot_value):
-            dispatcher.utter_message(text="Please choose one of the options")
-            return {"Réduire_des_douleurs": None}
-        else:
-            return {"Réduire_des_douleurs": slot_value}
+        score_dict = {"Tout à fait d'accord": 5, "D'accord": 4, "Indifférent": 3, "Pas d'accord": 2,
+                      "Pas du tout d'accord": 1}
+        slots_mapped_in_domain_ordered = ['prendre_du_recul',
+                                          'atteindre_des_objectifs',
+                                          'surmont_les_obstacles', 'faire_face_au_stress', 'demander_du_soutien',
+                                          'maintenir_la_motivation', 'choisir_de_maniere_informe']
+        #                                  'Remettre_en_question']
+        scores = []
+        for slot in slots_mapped_in_domain_ordered:
+            scores.append(score_dict[tracker.get_slot(slot)])
 
-    def validate_Vivre_sans_être_interrompu_par_la_maladie(
-            self,
-            slot_value: Any,
-            dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: DomainDict,
-    ) -> Dict[Text, Any]:
-        """Validate `last_name` value."""
+        ret_val = all(x <= 3 for x in scores)
+        slots_mapped_in_domain_ordered = [*slots_mapped_in_domain_ordered, slots_mapped_in_domain_ordered[0]]
 
-        # If the name is super short, it might be wrong.
-        if not self.check_options(slot_value):
-            dispatcher.utter_message(text="Please choose one of the options")
-            return {"Vivre_sans_être_interrompu_par_la_maladie": None}
-        else:
-            return {"Vivre_sans_être_interrompu_par_la_maladie": slot_value}
+        scores = [*scores, scores[0]]
 
-    def validate_Empêcher_les_perturbations_nocturnes(
-            self,
-            slot_value: Any,
-            dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: DomainDict,
-    ) -> Dict[Text, Any]:
-        """Validate `last_name` value."""
+        fig = go.Figure(
+            data=[
+                go.Scatterpolar(r=scores, theta=slots_mapped_in_domain_ordered, fill='toself', name=''),
+            ],
+            layout=go.Layout(
+                title=go.layout.Title(text='Autonomy Scale'),
+                polar={'radialaxis': {'visible': True}},
+                showlegend=True
+            )
+        )
 
-        # If the name is super short, it might be wrong.
-        if not self.check_options(slot_value):
-            dispatcher.utter_message(text="Please choose one of the options")
-            return {"Empêcher_les_perturbations_nocturnes": None}
-        else:
-            return {"Empêcher_les_perturbations_nocturnes": slot_value}
+        img_bytes = fig.to_image(format="png")
+        encoded_string = base64.b64encode(img_bytes).decode()
+        img = f"data:image/png;base64,{encoded_string}"
+        dispatcher.utter_attachment(attachment=encoded_string)
+        return ret_val
 
-    def validate_Gérer_alternativement_les_douleurs(
-            self,
-            slot_value: Any,
-            dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: DomainDict,
-    ) -> Dict[Text, Any]:
-        """Validate `last_name` value."""
-
-        # If the name is super short, it might be wrong.
-        if not self.check_options(slot_value):
-            dispatcher.utter_message(text="Please choose one of the options")
-            return {"Gérer_alternativement_les_douleurs": None}
-        else:
-            return {"Gérer_alternativement_les_douleurs": slot_value}
-
-    def validate_Contrôler_la_fatigue(
-            self,
-            slot_value: Any,
-            dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: DomainDict,
-    ) -> Dict[Text, Any]:
-        """Validate `last_name` value."""
-
-        # If the name is super short, it might be wrong.
-        if not self.check_options(slot_value):
-            dispatcher.utter_message(text="Please choose one of the options")
-            return {"Contrôler_la_fatigue": None}
-        else:
-            return {"Contrôler_la_fatigue": slot_value}
-
-    def validate_Gérer_la_dépression(
-            self,
-            slot_value: Any,
-            dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: DomainDict,
-    ) -> Dict[Text, Any]:
-        """Validate `last_name` value."""
-
-        # If the name is super short, it might be wrong.
-        if not self.check_options(slot_value):
-            dispatcher.utter_message(text="Please choose one of the options")
-            return {"Gérer_la_dépression": None}
-        else:
-            return {"Gérer_la_dépression": slot_value}
-
-    def validate_Vivre_de_manière_autonome(
-            self,
-            slot_value: Any,
-            dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: DomainDict,
-    ) -> Dict[Text, Any]:
-        """Validate `last_name` value."""
-
-        # If the name is super short, it might be wrong.
-        if not self.check_options(slot_value):
-            dispatcher.utter_message(text="Please choose one of the options")
-            return {"Vivre_de_manière_autonome": None}
-        else:
-            return {"Vivre_de_manière_autonome": slot_value}
-
-    def validate_Vivre_sans_limites(
-            self,
-            slot_value: Any,
-            dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: DomainDict,
-    ) -> Dict[Text, Any]:
-        """Validate `last_name` value."""
-
-        # If the name is super short, it might be wrong.
-        if not self.check_options(slot_value):
-            dispatcher.utter_message(text="Please choose one of the options")
-            return {"Vivre_sans_limites": None}
-        else:
-            return {"Vivre_sans_limites": slot_value}
-
-    def validate_Surmonter_les_frustrations(
-            self,
-            slot_value: Any,
-            dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: DomainDict,
-    ) -> Dict[Text, Any]:
-        """Validate `last_name` value."""
-
-        # If the name is super short, it might be wrong.
-        if not self.check_options(slot_value):
-            dispatcher.utter_message(text="Please choose one of the options")
-            return {"Surmonter_les_frustrations": None}
-        else:
-            return {"Surmonter_les_frustrations": slot_value}
+    # def validate_Réduire_des_douleurs(
+    #         self,
+    #         slot_value: Any,
+    #         dispatcher: CollectingDispatcher,
+    #         tracker: Tracker,
+    #         domain: DomainDict,
+    # ) -> Dict[Text, Any]:
+    #     """Validate `last_name` value."""
+    #
+    #     # If the name is super short, it might be wrong.
+    #     if not self.check_options(slot_value):
+    #         dispatcher.utter_message(text="Please choose one of the options")
+    #         return {"Réduire_des_douleurs": None}
+    #     else:
+    #         return {"Réduire_des_douleurs": slot_value}
+    #
+    # def validate_Vivre_sans_être_interrompu_par_la_maladie(
+    #         self,
+    #         slot_value: Any,
+    #         dispatcher: CollectingDispatcher,
+    #         tracker: Tracker,
+    #         domain: DomainDict,
+    # ) -> Dict[Text, Any]:
+    #     """Validate `last_name` value."""
+    #
+    #     # If the name is super short, it might be wrong.
+    #     if not self.check_options(slot_value):
+    #         dispatcher.utter_message(text="Please choose one of the options")
+    #         return {"Vivre_sans_être_interrompu_par_la_maladie": None}
+    #     else:
+    #         return {"Vivre_sans_être_interrompu_par_la_maladie": slot_value}
+    #
+    # def validate_Empêcher_les_perturbations_nocturnes(
+    #         self,
+    #         slot_value: Any,
+    #         dispatcher: CollectingDispatcher,
+    #         tracker: Tracker,
+    #         domain: DomainDict,
+    # ) -> Dict[Text, Any]:
+    #     """Validate `last_name` value."""
+    #
+    #     # If the name is super short, it might be wrong.
+    #     if not self.check_options(slot_value):
+    #         dispatcher.utter_message(text="Please choose one of the options")
+    #         return {"Empêcher_les_perturbations_nocturnes": None}
+    #     else:
+    #         return {"Empêcher_les_perturbations_nocturnes": slot_value}
+    #
+    # def validate_Gérer_alternativement_les_douleurs(
+    #         self,
+    #         slot_value: Any,
+    #         dispatcher: CollectingDispatcher,
+    #         tracker: Tracker,
+    #         domain: DomainDict,
+    # ) -> Dict[Text, Any]:
+    #     """Validate `last_name` value."""
+    #
+    #     # If the name is super short, it might be wrong.
+    #     if not self.check_options(slot_value):
+    #         dispatcher.utter_message(text="Please choose one of the options")
+    #         return {"Gérer_alternativement_les_douleurs": None}
+    #     else:
+    #         return {"Gérer_alternativement_les_douleurs": slot_value}
+    #
+    # def validate_Contrôler_la_fatigue(
+    #         self,
+    #         slot_value: Any,
+    #         dispatcher: CollectingDispatcher,
+    #         tracker: Tracker,
+    #         domain: DomainDict,
+    # ) -> Dict[Text, Any]:
+    #     """Validate `last_name` value."""
+    #
+    #     # If the name is super short, it might be wrong.
+    #     if not self.check_options(slot_value):
+    #         dispatcher.utter_message(text="Please choose one of the options")
+    #         return {"Contrôler_la_fatigue": None}
+    #     else:
+    #         return {"Contrôler_la_fatigue": slot_value}
+    #
+    # def validate_Gérer_la_dépression(
+    #         self,
+    #         slot_value: Any,
+    #         dispatcher: CollectingDispatcher,
+    #         tracker: Tracker,
+    #         domain: DomainDict,
+    # ) -> Dict[Text, Any]:
+    #     """Validate `last_name` value."""
+    #
+    #     # If the name is super short, it might be wrong.
+    #     if not self.check_options(slot_value):
+    #         dispatcher.utter_message(text="Please choose one of the options")
+    #         return {"Gérer_la_dépression": None}
+    #     else:
+    #         return {"Gérer_la_dépression": slot_value}
+    #
+    # def validate_Vivre_de_manière_autonome(
+    #         self,
+    #         slot_value: Any,
+    #         dispatcher: CollectingDispatcher,
+    #         tracker: Tracker,
+    #         domain: DomainDict,
+    # ) -> Dict[Text, Any]:
+    #     """Validate `last_name` value."""
+    #
+    #     # If the name is super short, it might be wrong.
+    #     if not self.check_options(slot_value):
+    #         dispatcher.utter_message(text="Please choose one of the options")
+    #         return {"Vivre_de_manière_autonome": None}
+    #     else:
+    #         return {"Vivre_de_manière_autonome": slot_value}
+    #
+    # def validate_Vivre_sans_limites(
+    #         self,
+    #         slot_value: Any,
+    #         dispatcher: CollectingDispatcher,
+    #         tracker: Tracker,
+    #         domain: DomainDict,
+    # ) -> Dict[Text, Any]:
+    #     """Validate `last_name` value."""
+    #
+    #     # If the name is super short, it might be wrong.
+    #     if not self.check_options(slot_value):
+    #         dispatcher.utter_message(text="Please choose one of the options")
+    #         return {"Vivre_sans_limites": None}
+    #     else:
+    #         return {"Vivre_sans_limites": slot_value}
+    #
+    # def validate_Surmonter_les_frustrations(
+    #         self,
+    #         slot_value: Any,
+    #         dispatcher: CollectingDispatcher,
+    #         tracker: Tracker,
+    #         domain: DomainDict,
+    # ) -> Dict[Text, Any]:
+    #     """Validate `last_name` value."""
+    #
+    #     # If the name is super short, it might be wrong.
+    #     if not self.check_options(slot_value):
+    #         dispatcher.utter_message(text="Please choose one of the options")
+    #         return {"Surmonter_les_frustrations": None}
+    #     else:
+    #         return {"Surmonter_les_frustrations": slot_value}
 
 
 class ValidateDailyForm(FormValidationAction):
@@ -335,13 +402,31 @@ class ValidateDailyForm(FormValidationAction):
     async def required_slots(self, slots_mapped_in_domain: List[Text], dispatcher: CollectingDispatcher,
                              tracker: Tracker, domain: DomainDict, ) -> Optional[List[Text]]:
 
-        slots_mapped_in_domain_ordered = ['journee', 'humeur', 'dormi_la_nuit', 'globalment', 'effort_exagéré'
-                                                                                              'senti_plus_fatigue',
+        slots_mapped_in_domain_ordered = ['journee', 'humeur', 'dormi_la_nuit', 'globalment', 'effort_exagéré',
+                                          'senti_plus_fatigue',
                                           'senti_plus_stress', 'froid_ou_ressenti', 'perdu_appetit', 'dehydrate',
                                           'rapidement', 'urine', 'douleurs',
                                           'bodypart', 'painkiller_count', 'lesquelles', 'alternatives', 'activites',
                                           'pouvoir', 'porquoi',
                                           'chose_de_particular', 'que_tu_souhaites']
+        if tracker.get_slot("douleurs") == "Aucune douleur":
+            slots_mapped_in_domain_ordered = ['journee', 'humeur', 'dormi_la_nuit', 'globalment', 'effort_exagéré',
+                                              'senti_plus_fatigue',
+                                              'senti_plus_stress', 'froid_ou_ressenti', 'perdu_appetit', 'dehydrate',
+                                              'rapidement', 'urine', 'douleurs', 'activites', 'pouvoir', 'porquoi',
+                                              'chose_de_particular', 'que_tu_souhaites']
+        elif tracker.get_slot("painkiller_count") is not None:
+            if int(tracker.get_slot("painkiller_count")) <= 0:
+                slots_mapped_in_domain_ordered = ['journee', 'humeur', 'dormi_la_nuit', 'globalment', 'effort_exagéré',
+                                                  'senti_plus_fatigue',
+                                                  'senti_plus_stress', 'froid_ou_ressenti', 'perdu_appetit',
+                                                  'dehydrate',
+                                                  'rapidement', 'urine', 'douleurs',
+                                                  'bodypart', 'alternatives',
+                                                  'activites',
+                                                  'pouvoir', 'porquoi',
+                                                  'chose_de_particular', 'que_tu_souhaites']
+
         return slots_mapped_in_domain_ordered
 
     def validate_journee(
@@ -618,14 +703,16 @@ class ValidateDailyForm(FormValidationAction):
             dispatcher.utter_message(text="Please choose one of the options")
             return {"douleurs": None}
         else:
-            if slot_value != "Aucune douleur":
-                SlotSet("body_part", "N/A")
-                SlotSet("painkiller_count", "N/A")
-                SlotSet("lesquelles", "N/A")
-                SlotSet("alternatives", "N/A")
+            if slot_value == "Aucune douleur":
+                dispatcher.utter_template('utter_sorry_for_pain', tracker)
+                return {"body_part": "N/A",
+                        "painkiller_count": "N/A",
+                        "lesquelles": "N/A",
+                        "alternatives": "N/A",
+                        "douleurs": slot_value}
                 # SlotSet("painkillers", "N/A")
 
-            return {"douleurs": slot_value}
+            # return {"douleurs": slot_value}
 
     def validate_activites(
             self,
@@ -682,7 +769,7 @@ class ValidateDailyForm(FormValidationAction):
         else:
             if slot_value == "Pas du tout":
                 SlotSet("porquoi", "N/A")
-            return {"pouvoir": slot_value}
+            return {"pouvoir": slot_value, "porquoi" : "N/A"}
 
 
 class ActionWarnDry(Action):

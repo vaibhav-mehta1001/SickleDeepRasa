@@ -3,22 +3,22 @@ stories:
 - story: happy path 1
   steps:
   - intent: start
-  - action: utter_welcome
+  - action: action_fill_slots
   - action: utter_consent
   - intent: affirm
   - action: name_form
   - active_loop: name_form
-- story: sad path 1
-  steps:
-  - intent: greet
-  - action: utter_consent
-  - intent: deny
-  - action: utter_goodbye
+#- story: sad path 1
+#  steps:
+#  - intent: greet
+#  - action: utter_consent
+#  - intent: deny
+#  - action: utter_goodbye
 - story: happy path daily
   steps:
   - intent: show_questionairre
   - action: utter_daily_q_confirm
-  - intent: affirm
+  - intent: affirm_daily_q
   - action: utter_positive_affirmation_qs
   - action: daily_form
   - active_loop: daily_form
@@ -31,21 +31,26 @@ stories:
 - story: Story from Conversation ID 848c3090e7284d0296ab0bd37f39ad67
   steps:
   - action: utter_daily_q_confirm
-  - intent: affirm
+  - intent: affirm_daily_q
   - action: utter_positive_affirmation_qs
   - action: daily_form
   - active_loop: daily_form
-  - slot_was_set:
-    - requested_slot: journee
-  - intent: mood_unhappy
-  - action: daily_form
-  - slot_was_set:
-    - journee: Pas du tout bien
-  - slot_was_set:
-    - requested_slot: humeur
-  - intent: mood_unhappy
-  - action: daily_form
-  - slot_was_set:
-    - humeur: Pas du tout bien
-  - slot_was_set:
-    - requested_slot: dormi_la_nuit
+#  - slot_was_set:
+#    - requested_slot: journee
+#  - action: daily_form
+#  - slot_was_set:
+#    - journee: Pas du tout bien
+#  - slot_was_set:
+#    - requested_slot: humeur
+#  - action: daily_form
+#  - slot_was_set:
+#    - humeur: Pas du tout bien
+#  - slot_was_set:
+#    - requested_slot: dormi_la_nuit
+- story: sad path 2
+  steps:
+  - intent: start
+  - action: action_fill_slots
+  - action: utter_consent
+  - intent: deny
+  - action: utter_goodbye
