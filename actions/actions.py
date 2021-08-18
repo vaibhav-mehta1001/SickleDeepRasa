@@ -7,7 +7,7 @@ from rasa_sdk import Tracker, FormValidationAction
 from rasa_sdk.events import SlotSet
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.types import DomainDict
-import plotly.graph_objects as go
+# import plotly.graph_objects as go
 
 
 class SetInitialSlots(Action):
@@ -227,29 +227,30 @@ class ValidateNameForm(FormValidationAction):
         for slot in slots_mapped_in_domain_ordered:
             scores.append(score_dict[tracker.get_slot(slot)])
 
-        ret_val = all(x <= 3 for x in scores)
+        ret_val = all(x >= 3 for x in scores)
         slots_mapped_in_domain_ordered = [*slots_mapped_in_domain_ordered, slots_mapped_in_domain_ordered[0]]
 
-        scores = [*scores, scores[0]]
-
-        fig = go.Figure(
-            data=[
-                go.Scatterpolar(r=scores, theta=slots_mapped_in_domain_ordered, fill='toself', name=''),
-            ],
-            layout=go.Layout(
-                title=go.layout.Title(text='Autonomy Scale'),
-                polar={'radialaxis': {'visible': True}},
-                showlegend=True
-            )
-        )
-
-        img_bytes = fig.to_image(format="png")
-        encoded_string = base64.b64encode(img_bytes).decode()
-        img = f"data:image/png;base64,{encoded_string}"
-        dispatcher.utter_attachment(attachment=encoded_string)
+        # scores = [*scores, scores[0]]
+        #
+        # fig = go.Figure(
+        #     data=[
+        #         go.Scatterpolar(r=scores, theta=slots_mapped_in_domain_ordered, fill='toself', name=''),
+        #     ],
+        #     layout=go.Layout(
+        #         title=go.layout.Title(text='Autonomy Scale'),
+        #         polar={'radialaxis': {'visible': True}},
+        #         showlegend=True
+        #     )
+        # )
+        #
+        # img_bytes = fig.to_image(format="png")
+        # encoded_string = base64.b64encode(img_bytes).decode()
+        # img = f"data:image/png;base64,{encoded_string}"
+        # dispatcher.utter_attachment(attachment=encoded_string)
         return ret_val
 
-    # def validate_Réduire_des_douleurs(
+    # def validate_Réduire_des_douleu
+    # rs(
     #         self,
     #         slot_value: Any,
     #         dispatcher: CollectingDispatcher,
