@@ -164,7 +164,19 @@ slots:
     influence_conversation: false
 responses:
   utter_auto_feedback:
-    - text: Souhaites-tu travailler à l'améioration de ta gestion de la maladie?
+  - buttons:
+        - payload: Si
+          title: /affirm
+        - payload: No
+          title: /deny
+    text: Souhaites-tu travailler à l'améioration de ta gestion de la maladie?
+    button_type: reply
+
+  utter_auto_affirm:
+    - text: Très bien, je te propose de visiter le canal Coach Drépano en suivant le lien ci-dessous. Tu y trouveras beaucoup d'informations et des cours sur comment mieux vivre avec la drépanocytose. https://t.me/joinchat/_MwGt64XTbhkYTI0
+  utter_auto_deny:
+    - text: Ok pas de problème, tu peux toujours revenir vers moi quand tu le souhaites.
+
   utter_bravo:
   - text: Bravo, je vois que tu gères très bien ta maladie!
   utter_greet:

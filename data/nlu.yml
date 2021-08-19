@@ -2,23 +2,19 @@ version: "2.0"
 nlu:
 - intent: greet
   examples: |
-      - Hé
-      - Bonjour
-      - salut
-      - Bonsoir
-      - moin
-      - salut
-      - allons-y
-      - salut mec
-      - bonne après-midi
+    - Hé
+    - Bonjour
+    - salutz
+    - Bonsoir
+    - moin
+    - allons-y
+    - salut mec
+    - bonne après-midi
 - intent: goodbye
   examples: |
-    - bonne après-midi
     - cu
     - au revoir
     - à plus tard
-    - Bonsoir
-    - au revoir
     - Au revoir
     - bonne journée
     - À un de ces quatre
@@ -32,9 +28,7 @@ nlu:
     - bien sûr
     - Ça a l'air bien
     - correct
-    - oui
     - o
-    - Oui
     - Si
 - intent: deny
   examples: |
@@ -53,7 +47,6 @@ nlu:
     - se sentir comme un roi
     - magnifique
     - je me sens très bien
-    - Je suis génial
     - Je suis génial
     - je vais sauver le monde
     - super content
@@ -83,21 +76,21 @@ nlu:
     - Êtes-vous un être humain?
     - est-ce que je parle à un bot ?
     - est-ce que je parle à un humain ?
-
 - intent: show_questionairre
   examples: |
-      - Je veux répondre au questioniarre quotidien
-      - Je veux répondre aux questions d'aujourd'hui
-      - questionairre quotidien
-      - Je veux remplir le formulaire
-      - Montrez-moi le formulaire
-      - Remplissage des questions quotidiennes
-      - répondre au questionnaire
-      - mettre à jour le questionnaire
-      - Je veux vous parler de ma santé
-      - Mises à jour sur la santé
-      - Vous tenir au courant de ma santé
-      - remplir le questionnaire
-      - remplir les q
-      - vous parler de ma santé
-      - répondre au questionnaire quotidien
+    - Je veux répondre au questioniarre quotidien
+    - Je veux répondre aux questions d'aujourd'hui
+    - questionairre quotidien
+    - Je veux remplir le formulaire
+    - Montrez-moi le formulaire
+    - Remplissage des questions quotidiennes
+    - répondre au questionnaire
+    - mettre à jour le questionnaire
+    - Je veux vous parler de ma santé
+    - Mises à jour sur la santé
+    - Vous tenir au courant de ma santé
+    - remplir le questionnaire
+    - remplir les q
+    - vous parler de ma santé
+    - répondre au questionnaire quotidien
+    - Pas du tout bien

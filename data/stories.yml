@@ -16,7 +16,7 @@ stories:
 #  - action: utter_goodbye
 - story: happy path daily
   steps:
-  - intent: show_questionairre good autonomy
+  - intent: show_questionairre
   - action: utter_daily_q_confirm
   - intent: affirm_daily_q
   - action: utter_positive_affirmation_qs
@@ -73,9 +73,8 @@ stories:
     - requested_slot: null
   - active_loop: null
   - action: utter_intial_submit
-  - action: utter_daily_inform
   - action: utter_bravo
-
+  - action: utter_daily_inform
 - story: Story from Conversation ID D
   steps:
   - intent: start
@@ -90,10 +89,30 @@ stories:
     - autonomy_result: false
   - slot_was_set:
     - requested_slot: null
+  - active_loop: null
+  - action: utter_intial_submit
+  - action: utter_auto_feedback
+  - intent: affirm
+  - action: utter_auto_affirm
+  - action: utter_daily_inform
+
+- story: Story from Conversation ID E
+  steps:
+  - intent: start
+  - action: action_fill_slots
+  - slot_was_set:
+    - first_name: ''
+  - action: utter_consent
+  - intent: affirm
+  - action: name_form
+  - active_loop: name_form
+  - slot_was_set:
+    - autonomy_result: false
   - slot_was_set:
     - requested_slot: null
   - active_loop: null
   - action: utter_intial_submit
-  - action: utter_daily_inform
   - action: utter_auto_feedback
-
+  - intent: deny
+  - action: utter_auto_deny
+  - action: utter_daily_inform
