@@ -51,7 +51,7 @@ class ValidateNameForm(FormValidationAction):
                                           'atteindre_des_objectifs',
                                           'surmont_les_obstacles', 'faire_face_au_stress', 'demander_du_soutien',
                                           'maintenir_la_motivation', 'choisir_de_maniere_informe',
-                                          'Remettre_en_question']
+                                          'Remettre_en_question', 'autonomy_result']
         # 'Réduire_des_douleurs',
         # 'Vivre_sans_être_interrompu_par_la_maladie',
         # 'Empêcher_les_perturbations_nocturnes',
