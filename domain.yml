@@ -1,282 +1,177 @@
 version: '2.0'
-config:
-  store_entities_as_slots: true
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- greet:
-    use_entities: true
-- goodbye:
-    use_entities: true
-- affirm:
-    use_entities: true
-- deny:
-    use_entities: true
-- mood_great:
-    use_entities: true
-- mood_unhappy:
-    use_entities: true
-- bot_challenge:
-    use_entities: true
-- graded_response:
-    use_entities: true
-- number:
-    use_entities: true
-- EXTERNAL_reminder:
-    use_entities: true
-- show_questionairre:
-    use_entities: true
-- affirm_daily_q:
-    use_entities: true
-- restart:
-    use_entities: true
-- start:
-    use_entities: true
+- show_questionairre
+- start
+- greet
+- goodbye
+- affirm
+- deny
+- mood_great
+- mood_unhappy
+- bot_challenge
+- graded_response
+- number
+- EXTERNAL_reminder
+- affirm_daily_q
+- restart
 slots:
   autonomy_result:
     type: categorical
-    values:
-      - good
-      - bad
     influence_conversation: true
+    values:
+    - 'true'
+    - 'false'
   consent:
-    type: rasa.shared.core.slots.BooleanSlot
-    initial_value: null
-    auto_fill: true
+    type: bool
     influence_conversation: true
   gender:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: true
   first_name:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: true
   genotype:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: true
   age:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: false
   prendre_du_recul:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: false
   employment:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: false
   atteindre_des_objectifs:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: false
   surmont_les_obstacles:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: false
   faire_face_au_stress:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: false
   demander_du_soutien:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: false
   maintenir_la_motivation:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: false
   choisir_de_maniere_informe:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: false
   Remettre_en_question:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: false
   Réduire_des_douleurs:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: false
   Vivre_sans_être_interrompu_par_la_maladie:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: false
   Empêcher_les_perturbations_nocturnes:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: false
   Gérer_alternativement_les_douleurs:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: false
   Contrôler_la_fatigue:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: false
   Gérer_la_dépression:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: false
   Vivre_de_manière_autonome:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: false
   Vivre_sans_limites:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: true
   Surmonter_les_frustrations:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: true
   journee:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: true
   humeur:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: true
   dormi_la_nuit:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: true
   globalment:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: true
   effort_exagéré:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: true
   senti_plus_fatigue:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: true
   senti_plus_stress:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: true
   froid_ou_ressenti:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: true
   perdu_appetit:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: true
   dehydrate:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: true
   rapidement:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: true
   urine:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: true
   douleurs:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: true
   bodypart:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: true
   painkiller_count:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: true
   lesquelles:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: true
   alternatives:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: true
   porquoi:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: true
   activites:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: true
   pouvoir:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: true
   chose_de_particular:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: true
   que_tu_souhaites:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: true
   requested_slot:
-    type: rasa.shared.core.slots.UnfeaturizedSlot
-    initial_value: null
-    auto_fill: true
+    type: unfeaturized
     influence_conversation: false
-entities: []
 responses:
+  utter_auto_feedback:
+    - text: Souhaites-tu travailler à l'améioration de ta gestion de la maladie?
+  utter_bravo:
+  - text: Bravo, je vois que tu gères très bien ta maladie!
   utter_greet:
   - text: Hey! How are you?
   utter_sorry_for_pain:
-    - text: Oh, je suis désolé d'entendre cela
-    - text: C'est terrible, une fois que vous remplissez le formulaire, je peux suggérer quelques façons d'aider
+  - text: Oh, je suis désolé d'entendre cela
+  - text: C'est terrible, une fois que vous remplissez le formulaire, je peux suggérer quelques façons d'aider
   utter_cheer_up:
   - image: https://i.imgur.com/nGF1K8f.jpg
     text: 'Here is something to cheer you up:'
@@ -299,7 +194,7 @@ responses:
     text: Salut {first_name}, Cette fonctionnalité de Trevor est encore au stade de prototype. N'hésite pas écrire dans le groupe de discussino si tu ne comprends pas quelque chose, si tu veux suggérer des modifications ou partager ton mécontentement :) J'aimerais d'abord vous poser quelques questions. Mais avant tout de chose, pour mieux comprendre le contexte de ta question, j'ai besoin que tu m'en dises un peu sur ton autonomie générale en matière de gestion de la drépanocytose?
     button_type: reply
   utter_intial_submit:
-    - text: Merci beaucoup pour ces informations!
+  - text: Merci beaucoup pour ces informations!
   utter_ask_gender:
   - text: De quel sexe es-tu? Il n'y a que deux options pour l'instant ca mais tu pourras toujours modifier cela quand tu veux
   utter_ask_age:
@@ -659,7 +554,7 @@ responses:
     button_type: reply
   utter_ask_dehydrate:
   - buttons:
-    - payload:
+    - payload: null
       title: Pas du tout
     - payload: Pas vraiment
       title: Pas vraiment
@@ -697,10 +592,6 @@ responses:
       title: Pas vraiment
     - payload: Rien d'anormal
       title: Rien d'anormal
-#    - payload: Très Bien
-#      title: Très Bien
-#    - payload: Un peu
-#      title: Un peu
     - payload: Beaucoup
       title: Beaucoup
     text: Tes yeux ou ton urine semblaient-ils plus jaunes que d'habitude ?
@@ -709,10 +600,6 @@ responses:
   - buttons:
     - payload: Douleur extrême insupportable
       title: Douleur extrême insupportable
-#    - payload: Douleur intense m'empêchant de faire la plupart de mes activités
-#      title: Douleur intense m'empêchant de faire la plupart de mes activités
-#    - payload: Douleur continues supportables
-#      title: Douleur continues supportables
     - payload: Douleur transitoires supportables
       title: Douleur transitoires supportables
     - payload: Aucune douleur
@@ -782,13 +669,13 @@ responses:
   utter_daily_inform:
   - text: I'll also need to ask you some daily questions. Let me know whenever you feel like answering them. In the meanwhile you can ask me questions have about SCD.
 actions:
-- validate_name_form
-- utter_submit
-- remind_questionnaire
-- draw_graph
-- validate_daily_form
-- action_fill_slots
 - action_feedback_initial_form
+- action_fill_slots
+- draw_graph
+- remind_questionnaire
+- utter_submit
+- validate_daily_form
+- validate_name_form
 forms:
   name_form:
     required_slots:
@@ -799,36 +686,17 @@ forms:
       Gérer_alternativement_les_douleurs:
       - type: from_text
       Gérer_la_dépression:
-        - type: from_text
+      - type: from_text
       Remettre_en_question:
-        - type: from_text
-           
-#      Réduire_des_douleurs:
-#      - type: from_text
-#      Surmonter_les_frustrations:
-#      - type: from_text
-#      Vivre_de_manière_autonome:
-#      - type: from_text
-#      Vivre_sans_limites:
-#      - type: from_text
-#      Vivre_sans_être_interrompu_par_la_maladie:
-#      - type: from_text
-#      age:
-#      - type: from_text
+      - type: from_text
       atteindre_des_objectifs:
       - type: from_text
       choisir_de_maniere_informe:
       - type: from_text
       demander_du_soutien:
       - type: from_text
-#      employment:
-#      - type: from_text
       faire_face_au_stress:
       - type: from_text
-#      gender:
-#      - type: from_text
-#      genotype:
-#      - type: from_text
       maintenir_la_motivation:
       - type: from_text
       prendre_du_recul:
@@ -838,69 +706,46 @@ forms:
   daily_form:
     required_slots:
       activites:
-        - type: from_text
-           
+      - type: from_text
       alternatives:
-        - type: from_text
-           
+      - type: from_text
       bodypart:
-        - type: from_text
-           
+      - type: from_text
       chose_de_particular:
-        - type: from_text
-           
+      - type: from_text
       dehydrate:
-        - type: from_text
-           
+      - type: from_text
       dormi_la_nuit:
-        - type: from_text
-           
+      - type: from_text
       douleurs:
-        - type: from_text
-           
+      - type: from_text
       effort_exagéré:
-        - type: from_text
-           
+      - type: from_text
       froid_ou_ressenti:
-        - type: from_text
-           
+      - type: from_text
       globalment:
-        - type: from_text
-           
+      - type: from_text
       humeur:
-        - type: from_text
-           
+      - type: from_text
       journee:
-        - type: from_text
-           
+      - type: from_text
       lesquelles:
-        - type: from_text
-           
+      - type: from_text
       painkiller_count:
-        - type: from_text
-           
+      - type: from_text
       perdu_appetit:
-        - type: from_text
-           
+      - type: from_text
       porquoi:
-        - type: from_text
-           
+      - type: from_text
       pouvoir:
-        - type: from_text
-           
+      - type: from_text
       que_tu_souhaites:
-        - type: from_text
-           
+      - type: from_text
       rapidement:
-        - type: from_text
-           
+      - type: from_text
       senti_plus_fatigue:
-        - type: from_text
-           
+      - type: from_text
       senti_plus_stress:
-        - type: from_text
-           
+      - type: from_text
       urine:
-        - type: from_text
-           
-e2e_actions: []
+      - type: from_text
