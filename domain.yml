@@ -305,7 +305,7 @@ responses:
   utter_iamabot:
   - text: I am a bot, powered by Rasa.
   utter_submit:
-  - text: Thanks for filling the form
+  - text: Merci d'avoir répondu à ces questions
   utter_consent:
   - button_type: reply
     buttons:
@@ -774,9 +774,9 @@ responses:
   utter_daily_q_confirm:
   - buttons:
     - payload: /affirm_daily_q
-      title: Si
+      title: Oui
     - payload: /deny
-      title: Affirm
+      title: Non
     text: Vous voulez répondre au questionnaire, n'est-ce pas ?
   utter_positive_affirmation_qs:
   - text: Génial! voici le questionnaire
