@@ -53,6 +53,11 @@ slots:
     initial_value: null
     auto_fill: true
     influence_conversation: true
+  pain_type:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
   first_name:
     type: rasa.shared.core.slots.TextSlot
     initial_value: null
@@ -554,10 +559,10 @@ responses:
     buttons:
     - payload: Pas du tout bien
       title: Pas du tout bien
-    - payload: Pas très bien
-      title: Pas très bien
-    - payload: Normalement
-      title: Normalement
+    - payload: Pas bien
+      title: Pas bien
+    - payload: Ni bien ni mauvaise
+      title: Ni bien ni mauvaise
     - payload: Très bien
       title: Très bien
     - payload: Parfaitement bien
@@ -566,26 +571,26 @@ responses:
   utter_ask_dormi_la_nuit:
   - button_type: reply
     buttons:
-    - payload: Pas du tout bien
+    - payload: Pas du tout
       title: Pas du tout bien
-    - payload: Pas très bien
-      title: Pas très bien
-    - payload: Normalement
-      title: Normalement
+    - payload: Plutôt pas
+      title: Plutôt pas
+    - payload: Ni mieux ni moins bien
+      title: Ni mieux ni moins bien
+    - payload: Bien
+      title: Bien
     - payload: Très bien
       title: Très bien
-    - payload: Parfaitement bien
-      title: Parfaitement bien
     text: As-tu bien dormi la nuit dernière ?
   utter_ask_humeur:
   - button_type: reply
     buttons:
-    - payload: Pas du tout bien
-      title: Pas du tout bien
-    - payload: Pas très bien
-      title: Pas très bien
-    - payload: Normale
-      title: Normale
+    - payload: Très mauvaise
+      title: Très mauvaise
+    - payload: Mauvaise
+      title: Mauvaise
+    - payload: Ni bonne ni mauvaise
+      title:  Ni bonne ni mauvaise
     - payload: Très Bonne
       title: Très Bonne
     - payload: Parfaitement bien
@@ -597,57 +602,51 @@ responses:
   - button_type: reply
     buttons:
     - payload: Pas du tout
-      title: Pas du tout
-    - payload: Pas vraiment
-      title: Pas vraiment
-    - payload: Rien d'anormal
-      title: Rien d'anormal
-    - payload: Très Bien
-      title: Très Bien
-    - payload: Un peu
-      title: Un peu
-    - payload: Beaucoup
-      title: Beaucoup
+      title: Pas du tout bien
+    - payload: Plutôt pas
+      title: Plutôt pas
+    - payload: Ni mieux ni moins bien
+      title: Ni mieux ni moins bien
+    - payload: Bien
+      title: Bien
+    - payload: Très bien
+      title: Très bien
     text: As-tu dû faire un effort exagéré aujourd'hui ? (par exemple courir après un bus)?
   utter_ask_senti_plus_fatigue:
   - button_type: reply
     buttons:
     - payload: Pas du tout
       title: Pas du tout
-    - payload: Pas vraiment
-      title: Pas vraiment
-    - payload: Rien d'anormal
-      title: Rien d'anormal
-    - payload: Très Bien
-      title: Très Bien
-    - payload: Un peu
-      title: Un peu
-    - payload: Beaucoup
-      title: Beaucoup
+    - payload: Plutôt pas
+      title: Plutôt pas
+    - payload: Ni plus ni moins
+      title: Ni plus ni moins
+    - payload: Plus
+      title: Plus
+    - payload: Beaucoup Plus
+      title: Beaucoup Plus
     text: T'es-tu senti plus fatigué que d'habitude ?
   utter_ask_senti_plus_stress:
   - button_type: reply
     buttons:
     - payload: Pas du tout
       title: Pas du tout
-    - payload: Pas vraiment
-      title: Pas vraiment
-    - payload: Rien d'anormal
-      title: Rien d'anormal
-    - payload: Très Bien
-      title: Très Bien
-    - payload: Un peu
-      title: Un peu
-    - payload: Beaucoup
-      title: Beaucoup
+    - payload: Plutôt pas
+      title: Plutôt pas
+    - payload: Ni plus ni moins
+      title: Ni plus ni moins
+    - payload: Plus
+      title: Plus
+    - payload: Beaucoup Plus
+      title: Beaucoup Plus
     text: T'es-tu senti plus stressé ou contrarié que d'habitude ?
   utter_ask_froid_ou_ressenti:
   - button_type: reply
     buttons:
     - payload: Pas du tout
       title: Pas du tout
-    - payload: Pas vraiment
-      title: Pas vraiment
+    - payload: Plutôt pas
+      title: Plutôt pas
     - payload: Rien d'anormal
       title: Rien d'anormal
     - payload: Très Bien
@@ -662,8 +661,8 @@ responses:
     buttons:
     - payload: Pas du tout
       title: Pas du tout
-    - payload: Pas vraiment
-      title: Pas vraiment
+    - payload: Plutôt pas
+      title: Plutôt pas
     - payload: Rien d'anormal
       title: Rien d'anormal
     - payload: Très Bien
@@ -678,8 +677,8 @@ responses:
     buttons:
     - payload: null
       title: Pas du tout
-    - payload: Pas vraiment
-      title: Pas vraiment
+    - payload: Plutôt pas
+      title: Plutôt pas
     - payload: Rien d'anormal
       title: Rien d'anormal
     - payload: Très Bien
@@ -694,8 +693,8 @@ responses:
     buttons:
     - payload: Pas du tout
       title: Pas du tout
-    - payload: Pas vraiment
-      title: Pas vraiment
+    - payload: Plutôt pas
+      title: Plutôt pas
     - payload: Rien d'anormal
       title: Rien d'anormal
     - payload: Très Bien
@@ -710,15 +709,15 @@ responses:
     buttons:
     - payload: Pas du tout
       title: Pas du tout
-    - payload: Pas vraiment
-      title: Pas vraiment
+    - payload: Plutôt pas
+      title: Plutôt pas
     - payload: Rien d'anormal
       title: Rien d'anormal
     - payload: Beaucoup
       title: Beaucoup
     text: Tes yeux ou ton urine semblaient-ils plus jaunes que d'habitude ?
   utter_ask_douleurs:
-  - button_type: vertical
+  - button_type: reply
     buttons:
     - payload: Douleur extrême insupportable
       title: Douleur extrême insupportable

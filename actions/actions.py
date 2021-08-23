@@ -7,6 +7,8 @@ from rasa_sdk import Tracker, FormValidationAction
 from rasa_sdk.events import SlotSet
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.types import DomainDict
+
+
 # import plotly.graph_objects as go
 
 
@@ -211,8 +213,8 @@ class ValidateNameForm(FormValidationAction):
         else:
             autonomy_result = self.draw_graph(tracker, dispatcher)
             return {
-                "Remettre_en_question":slot_value,
-                "autonomy_result" :autonomy_result}
+                "Remettre_en_question": slot_value,
+                "autonomy_result": autonomy_result}
 
     def draw_graph(self, tracker, dispatcher):
 
@@ -403,18 +405,18 @@ class ValidateDailyForm(FormValidationAction):
     async def required_slots(self, slots_mapped_in_domain: List[Text], dispatcher: CollectingDispatcher,
                              tracker: Tracker, domain: DomainDict, ) -> Optional[List[Text]]:
 
-        slots_mapped_in_domain_ordered = ['journee', 'humeur', 'dormi_la_nuit', 'globalment', 'effort_exagéré',
+        slots_mapped_in_domain_ordered = ['globalment', 'journee', 'humeur', 'dormi_la_nuit', 'effort_exagéré',
                                           'senti_plus_fatigue',
                                           'senti_plus_stress', 'froid_ou_ressenti', 'perdu_appetit', 'dehydrate',
                                           'rapidement', 'urine', 'douleurs',
-                                          'bodypart', 'painkiller_count', 'lesquelles', 'alternatives', 'activites',
+                                          'bodypart', 'pain_type', 'painkiller_count', 'lesquelles', 'alternatives', 'activites',
                                           'pouvoir', 'porquoi',
                                           'chose_de_particular', 'que_tu_souhaites']
         if tracker.get_slot("douleurs") == "Aucune douleur":
-            slots_mapped_in_domain_ordered = ['journee', 'humeur', 'dormi_la_nuit', 'globalment', 'effort_exagéré',
+            slots_mapped_in_domain_ordered = ['globalment', 'humeur', 'dormi_la_nuit', 'globalment', 'effort_exagéré',
                                               'senti_plus_fatigue',
                                               'senti_plus_stress', 'froid_ou_ressenti', 'perdu_appetit', 'dehydrate',
-                                              'rapidement', 'urine', 'douleurs', 'activites', 'pouvoir', 'porquoi',
+                                              'rapidement', 'urine', 'douleurs', #'activites', 'pouvoir', 'porquoi',
                                               'chose_de_particular', 'que_tu_souhaites']
         elif tracker.get_slot("painkiller_count") is not None:
             if int(tracker.get_slot("painkiller_count")) <= 0:
@@ -440,8 +442,8 @@ class ValidateDailyForm(FormValidationAction):
         """Validate `first_name` value."""
 
         options = {"Pas du tout bien",
-                   "Pas très bien",
-                   "Normalement",
+                   "Pas bien",
+                   "Ni bien ni mauvaise",
                    "Très bien",
                    "Parfaitement bien"}
 
@@ -460,11 +462,10 @@ class ValidateDailyForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         """Validate `first_name` value."""
 
-        options = {"Pas du tout bien",
-                   "Pas très bien",
-                   "Normalement",
-                   "Très bien",
-                   "Parfaitement bien"}
+        options = {"Pas du tout", "Plutôt pas",
+                   "Ni mieux ni moins bien",
+                   "Bien",
+                   "Très bien"}
 
         if slot_value not in options:
             dispatcher.utter_message(text="Please choose one of the options")
@@ -481,10 +482,10 @@ class ValidateDailyForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         """Validate `first_name` value."""
 
-        options = {"Pas du tout bien",
-                   "Pas très bien",
+        options = {"Mauvaise",
+                   "Très Mauvaise",
                    "Très Bien",
-                   "Normaleme",
+                   "Ni bonne ni mauvaise",
                    "Très Bonne",
                    "Parfaitement bien"}
 
@@ -518,12 +519,10 @@ class ValidateDailyForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         """Validate `first_name` value."""
 
-        options = {"Pas du tout",
-                   "Pas vraiment",
-                   "Rien d'anormal",
-                   "Très Bien",
-                   "Un peu",
-                   "Beaucoup"}
+        options = {"Pas du tout", "Plutôt pas",
+                   "Ni plus ni moins bien",
+                   "Bien",
+                   "Très bien"}
 
         if slot_value not in options:
             dispatcher.utter_message(text="Please choose one of the options")
@@ -540,12 +539,8 @@ class ValidateDailyForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         """Validate `first_name` value."""
 
-        options = {"Pas du tout",
-                   "Pas vraiment",
-                   "Rien d'anormal",
-                   "Très Bien",
-                   "Un peu",
-                   "Beaucoup"}
+        options = {"Pas du tout", "Plutôt pas", "Ni plus ni moins", "Plus",
+                   "Beaucoup Plus"}
 
         if slot_value not in options:
             dispatcher.utter_message(text="Please choose one of the options")
@@ -562,12 +557,8 @@ class ValidateDailyForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         """Validate `first_name` value."""
 
-        options = {"Pas du tout",
-                   "Pas vraiment",
-                   "Rien d'anormal",
-                   "Très Bien",
-                   "Un peu",
-                   "Beaucoup"}
+        options = {"Pas du tout", "Plutôt pas", "Ni plus ni moins", "Plus",
+                   "Beaucoup Plus"}
 
         if slot_value not in options:
             dispatcher.utter_message(text="Please choose one of the options")
@@ -585,7 +576,7 @@ class ValidateDailyForm(FormValidationAction):
         """Validate `first_name` value."""
 
         options = {"Pas du tout",
-                   "Pas vraiment",
+                   "Plutôt pas",
                    "Rien d'anormal",
                    "Très Bien",
                    "Un peu",
@@ -607,7 +598,7 @@ class ValidateDailyForm(FormValidationAction):
         """Validate `first_name` value."""
 
         options = {"Pas du tout",
-                   "Pas vraiment",
+                   "Plutôt pas",
                    "Rien d'anormal",
                    "Très Bien",
                    "Un peu",
@@ -629,7 +620,7 @@ class ValidateDailyForm(FormValidationAction):
         """Validate `first_name` value."""
 
         options = {"Pas du tout",
-                   "Pas vraiment",
+                   "Plutôt pas",
                    "Rien d'anormal",
                    "Très Bien",
                    "Un peu",
@@ -651,7 +642,7 @@ class ValidateDailyForm(FormValidationAction):
         """Validate `first_name` value."""
 
         options = {"Pas du tout",
-                   "Pas vraiment",
+                   "Plutôt pas",
                    "Rien d'anormal",
                    "Très Bien",
                    "Un peu",
@@ -673,7 +664,7 @@ class ValidateDailyForm(FormValidationAction):
         """Validate `first_name` value."""
 
         options = {"Pas du tout",
-                   "Pas vraiment",
+                   "Plutôt pas",
                    "Rien d'anormal",
                    "Très Bien"
                    "Un peu",
@@ -770,7 +761,7 @@ class ValidateDailyForm(FormValidationAction):
         else:
             if slot_value == "Pas du tout":
                 SlotSet("porquoi", "N/A")
-            return {"pouvoir": slot_value, "porquoi" : "N/A"}
+            return {"pouvoir": slot_value, "porquoi": "N/A"}
 
 
 class ActionWarnDry(Action):
