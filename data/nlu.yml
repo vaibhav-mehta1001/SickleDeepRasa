@@ -30,6 +30,8 @@ nlu:
     - correct
     - o
     - Si
+    - 100
+    - ok
 - intent: deny
   examples: |
     - non
@@ -39,6 +41,8 @@ nlu:
     - n'aime pas ça
     - certainement pas
     - pas vraiment
+    - Non merci
+    - Nope
 - intent: mood_great
   examples: |
     - parfait
@@ -94,3 +98,5 @@ nlu:
     - vous parler de ma santé
     - répondre au questionnaire quotidien
     - Pas du tout bien
+    - Je veux remplir le questionnaire
+    - remplir la questioniare
