@@ -11,6 +11,11 @@ rules:
 #        - autonomy_result: good
 #      - utter_bravo
 #      -
+- rule: nlu fallback rule
+  steps:
+  - intent: nlu_fallback
+  - action: utter_please_rephrase
+
 - rule: daily form intial
   steps:
     - intent: show_questionairre

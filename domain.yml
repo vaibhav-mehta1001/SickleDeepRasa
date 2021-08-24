@@ -279,12 +279,14 @@ slots:
     auto_fill: true
     influence_conversation: false
 responses:
+  utter_please_rephrase:
+    - text: I'm sorry, I didn't quite understand that. Could you rephrase?
   utter_auto_feedback:
   - button_type: reply
     buttons:
-    - payload: Si
+    - payload: Oui
       title: /affirm
-    - payload: No
+    - payload: Non
       title: /deny
     text: Souhaites-tu travailler à l'améioration de ta gestion de la maladie?
   utter_auto_affirm:
