@@ -298,8 +298,8 @@ responses:
   utter_greet:
   - text: Hey! How are you?
   utter_sorry_for_pain:
-  - text: Oh, je suis désolé d'entendre cela
-  - text: C'est terrible, une fois que vous remplissez le formulaire, je peux suggérer quelques façons d'aider
+  - text: Oh, I am sorry to hear that
+  - text: That's terrible. After you fill this questionairre, I can suggest some ways of managing the pain
   utter_cheer_up:
   - image: https://i.imgur.com/nGF1K8f.jpg
     text: 'Here is something to cheer you up:'
@@ -312,17 +312,17 @@ responses:
   utter_iamabot:
   - text: I am a bot, powered by Rasa.
   utter_submit:
-  - text: Merci d'avoir répondu à ces questions
+  - text: Thanks for answering my questions, have a great day!
   utter_consent:
   - button_type: reply
     buttons:
     - payload: /affirm
-      title: Ok allons-y!
+      title: Yes!
     - payload: /deny
       title: No
-    text: Salut {first_name}, Cette fonctionnalité de Trevor est encore au stade de prototype. N'hésite pas écrire dans le groupe de discussino si tu ne comprends pas quelque chose, si tu veux suggérer des modifications ou partager ton mécontentement :) J'aimerais d'abord vous poser quelques questions. Mais avant tout de chose, pour mieux comprendre le contexte de ta question, j'ai besoin que tu m'en dises un peu sur ton autonomie générale en matière de gestion de la drépanocytose?
+    text: Hi {first_name}, This feature of Trevor is still in the prototype stage. Do not hesitate to write in the discussino group if you do not understand something, if you want to suggest changes or share your dissatisfaction :) I would like to ask you a few questions first. But first of all, to better understand the context of your question, I need you to tell me a little about your general autonomy in the management of sickle cell disease. Is that okay?
   utter_intial_submit:
-  - text: Merci beaucoup pour ces informations!
+  - text: Thanks for the information!
   utter_ask_gender:
   - text: De quel sexe es-tu? Il n'y a que deux options pour l'instant ca mais tu pourras toujours modifier cela quand tu veux
   utter_ask_age:
@@ -344,7 +344,7 @@ responses:
       title: Pas d'accord
     - payload: Pas du tout d'accord
       title: Pas du tout d'accord
-    text: En matière de gestion de la drépanocytose, je pense savoir quels sont les aspects dont je suis insatisfait?
+    text: When it comes to managing sickle cell disease, I think I know what aspects I am dissatisfied with?
   utter_ask_atteindre_des_objectifs:
   - button_type: reply
     buttons:
@@ -358,8 +358,7 @@ responses:
       title: Pas d'accord
     - payload: Pas du tout d'accord
       title: Pas du tout d'accord
-    text: En général, je pense pouvoir essayer différentes manières pour surmonter les obstacles qui entravent l'atteinte de mes objectifs en matière de gestion de la drépanocytose?
-  utter_ask_surmont_les_obstacles:
+    text: In general, I think I can try different ways to overcome the barriers that are preventing me from reaching my goals for managing sickle cell disease?  utter_ask_surmont_les_obstacles?
   - button_type: reply
     buttons:
     - payload: Tout à fait d'accord
@@ -386,7 +385,7 @@ responses:
       title: Pas d'accord
     - payload: Pas du tout d'accord
       title: Pas du tout d'accord
-    text: En général, je pense connaître les moyens positifs que j'utilise pour faire face au stress que provoque la drépanocytose?
+    text: In general, I think I know the positive ways I use to cope with the stress of sickle cell disease?
   utter_ask_demander_du_soutien:
   - buttons:
     - payload: Tout à fait d'accord
@@ -399,7 +398,7 @@ responses:
       title: Pas d'accord
     - payload: Pas du tout d'accord
       title: Pas du tout d'accord
-    text: Lorsque j'en ai besoin, je pense pouvoir demander du soutien pour vivre avec et prendre soin de ma drépanocytose?
+    text: When I need it, do I think I can ask for support to live with and take care of my sickle cell disease?
   utter_ask_maintenir_la_motivation:
   - buttons:
     - payload: Tout à fait d'accord
@@ -412,7 +411,7 @@ responses:
       title: Pas d'accord
     - payload: Pas du tout d'accord
       title: Pas du tout d'accord
-    text: En général, je sais ce qui m'aide à rester motiver pour prendre soin de ma drépanocytose?
+    text: When I need it, do I think I can ask for support to live with and take care of my sickle cell disease?
   utter_ask_choisir_de_maniere_informe:
   - buttons:
     - payload: Tout à fait d'accord
@@ -425,7 +424,7 @@ responses:
       title: Pas d'accord
     - payload: Pas du tout d'accord
       title: Pas du tout d'accord
-    text: En général, j'en sais suffisamment sur la drépanocytose pour choisir ce qui est bon pour moi?
+    text: In general, do I know enough about sickle cell disease to choose what is right for me?
   utter_ask_Remettre_en_question:
   - buttons:
     - payload: Tout à fait d'accord
@@ -438,7 +437,7 @@ responses:
       title: Pas d'accord
     - payload: Pas du tout d'accord
       title: Pas du tout d'accord
-    text: En général, je suis capable de comprendre si cela vaut la peine de changer ma façon de prendre soin de ma drépanocytose?
+    text: In general, I can understand if it is worth changing the way I take care of my sickle cell disease?
   utter_ask_Réduire_des_douleurs:
   - buttons:
     - payload: Tout à fait d'accord
@@ -451,7 +450,7 @@ responses:
       title: Pas d'accord
     - payload: Pas du tout d'accord
       title: Pas du tout d'accord
-    text: En général, je suis sûr(e) et certain(e) de pouvoir réduire des douleurs au maximum?
+    text: In general, I am sure that I can reduce pain as much as possible?
   utter_ask_Vivre_sans_être_interrompu_par_la_maladie:
   - buttons:
     - payload: Tout à fait d'accord
@@ -464,7 +463,7 @@ responses:
       title: Pas d'accord
     - payload: Pas du tout d'accord
       title: Pas du tout d'accord
-    text: 'En général, je suis  sûr(e) et certain(e) de pouvoir, au quotidien, faire tout ce que je veux, sans interruption causée par la maladie (ex: douleurs, fatigue)?'
+    text: In general, I am sure that I can do whatever I want on a daily basis without interruption caused by illness (eg pain, fatigue)?
   utter_ask_Empêcher_les_perturbations_nocturnes:
   - buttons:
     - payload: Tout à fait d'accord
@@ -477,7 +476,7 @@ responses:
       title: Pas d'accord
     - payload: Pas du tout d'accord
       title: Pas du tout d'accord
-    text: A quel point es-tu sûr(e) et certain(e) de pouvoir empêcher les douleurs d'interférér avec ton sommeil??
+    text: How sure are you that you can prevent pain from interfering with your sleep?
   utter_ask_Gérer_alternativement_les_douleurs:
   - buttons:
     - payload: Tout à fait d'accord
@@ -569,7 +568,7 @@ responses:
       title: Très bien
     - payload: Parfaitement bien
       title: Parfaitement bien
-    text: Ta journée s'est bien passée ?
+    text: How was your day?
   utter_ask_dormi_la_nuit:
   - button_type: reply
     buttons:
@@ -583,7 +582,7 @@ responses:
       title: Bien
     - payload: Très bien
       title: Très bien
-    text: As-tu bien dormi la nuit dernière ?
+    text: Did you sleep well last night?
   utter_ask_humeur:
   - button_type: reply
     buttons:
@@ -597,9 +596,9 @@ responses:
       title: Très Bonne
     - payload: Parfaitement bien
       title: Parfaitement bien
-    text: Ton humeur était-elle bonne ?
+    text: Was your mood good?
   utter_ask_globalment:
-  - text: Comment te sens-tu globalement ?
+  - text: On a scale pf 1-100, how do you feel overall?
   utter_ask_effort_exagéré:
   - button_type: reply
     buttons:
@@ -613,7 +612,7 @@ responses:
       title: Bien
     - payload: Très bien
       title: Très bien
-    text: As-tu dû faire un effort exagéré aujourd'hui ? (par exemple courir après un bus)?
+    text: Did you have to make an exaggerated effort today? (eg chasing a bus)?
   utter_ask_senti_plus_fatigue:
   - button_type: reply
     buttons:
@@ -627,7 +626,7 @@ responses:
       title: Plus
     - payload: Beaucoup Plus
       title: Beaucoup Plus
-    text: T'es-tu senti plus fatigué que d'habitude ?
+    text: Did you feel more tired than usual?
   utter_ask_senti_plus_stress:
   - button_type: reply
     buttons:
@@ -641,7 +640,7 @@ responses:
       title: Plus
     - payload: Beaucoup Plus
       title: Beaucoup Plus
-    text: T'es-tu senti plus stressé ou contrarié que d'habitude ?
+    text: Did you feel more stressed or upset than usual?
   utter_ask_froid_ou_ressenti:
   - button_type: reply
     buttons:
@@ -657,7 +656,7 @@ responses:
       title: Un peu
     - payload: Beaucoup
       title: Beaucoup
-    text: As-tu attrapé froid ou ressenti un signe d'infection? (p. ex., frissons, éternuements, sécheresse buccale, fièvre)
+    text: Have you caught a cold or felt any sign of infection? (eg, chills, sneezing, dry mouth, fever)
   utter_ask_perdu_appetit:
   - button_type: reply
     buttons:
@@ -673,7 +672,7 @@ responses:
       title: Un peu
     - payload: Beaucoup
       title: Beaucoup
-    text: As-tu perdu l'appétit?
+    text: Have you lost your appetite?
   utter_ask_dehydrate:
   - button_type: reply
     buttons:
@@ -689,7 +688,7 @@ responses:
       title: Un peu
     - payload: Beaucoup
       title: Beaucoup
-    text: T'es-tu senti déshydraté ? (par exemple, soif)?
+    text: Have you felt dehydrated? (for example, thirsty)?
   utter_ask_rapidement:
   - button_type: reply
     buttons:
@@ -705,7 +704,7 @@ responses:
       title: Un peu
     - payload: Beaucoup
       title: Beaucoup
-    text: T'es-tu senti plus rapidement épuisé/essoufflé ? (p. ex., après avoir marché, monté des escaliers, s'être reposé)
+    text: Did you feel exhausted / short of breath faster? (eg, after walking, climbing stairs, resting)
   utter_ask_urine:
   - button_type: reply
     buttons:
@@ -717,7 +716,7 @@ responses:
       title: Rien d'anormal
     - payload: Beaucoup
       title: Beaucoup
-    text: Tes yeux ou ton urine semblaient-ils plus jaunes que d'habitude ?
+    text: Did your eyes or urine look yellower than usual?
   utter_ask_douleurs:
   - button_type: reply
     buttons:
@@ -727,8 +726,9 @@ responses:
       title: Douleur transitoires supportables
     - payload: Aucune douleur
       title: Aucune douleur
-    text: As-tu ressenti des douleurs liées à la drépanocytose ?
+    text: Have you had pain related to sickle cell disease?
   utter_ask_activites:
+  - button_type: reply
   - buttons:
     - payload: Pas du tout
       title: Pas du tout
@@ -742,8 +742,9 @@ responses:
       title: Un peu
     - payload: Beaucoup
       title: Beaucoup
-    text: As-tu pu reprendre vos activités habituelles?
+    text: Were you able to resume your usual activities?
   utter_ask_pouvoir:
+  - button_type: reply
   - buttons:
     - payload: Pas du tout
       title: Pas du tout
@@ -755,41 +756,42 @@ responses:
       title: Un peu
     - payload: Totalement
       title: Totalement
-    text: As-tu eu l'impression de pouvoir prédire la douleur ?
+    text: Did you feel like you could predict the pain?
   utter_ask_chose_de_particular:
-  - text: Y-a-t-il quelque chose de particulier que tu as remarqué ou fait aujourd'hui ?
+  - text: Is there anything in particular that you noticed or did today?
   utter_ask_que_tu_souhaites:
-  - text: Quelque chose d'autre que tu souhaites me dire?
+  - text: Something else you want to tell me?
   utter_ask_bodypart:
-  - text: Où dans ton corps se situaient la ou les douleurs ??
+  - text: Where in your body were the pain (s) located?
   utter_ask_pain_type:
-  - text: Quel type de douleurs était-ce? ?
+  - text: What kind of pain was it? ?
   utter_ask_painkiller_count:
-  - text: Combien d'analgésiques as-tu pris ?
-  utter_ask_lesquelles:
-  - text: Lesquelles ?
+  - text: How many painkillers did you take?
+  utter_ask_which:
+  - text: Which ones?
   utter_ask_alternatives:
-  - text: As-tu fait autre chose pour soulager votre?
-  utter_ask_porquoi:
-  - text: pourquoi ?
-  utter_daily_q_confirm:
+  - text: Did you do something else to relieve your pain?
+  utter_ask_why:
+  - text: why?
+utter_daily_q_confirm:
+  - button_type: reply
   - buttons:
-    - payload: /affirm_daily_q
-      title: Oui
-    - payload: /deny
-      title: Non
-    text: Vous voulez répondre au questionnaire, n'est-ce pas ?
+    - payload: / affirm_daily_q
+      title: Yes
+    - payload: / deny
+      title: No
+    text: You want to answer the questionairre, right?
   utter_positive_affirmation_qs:
-  - text: Génial! voici le questionnaire
-  - text: Génial! Commençons
-  - text: D'accord, commençons
-  - text: Commençons!
-  - text: Cool, commençons !
-  - text: Génial!
+  - text: Awesome! here is the questionnaire
+  - text: Awesome! Let's start
+  - text: Okay, let's get started
+  - text: Let's start!
+  - text: Cool, let's get started!
+  - text: Awesome!
   utter_welcome:
-  - text: Hi {first_name}, Cette fonctionnalité de Trevor est encore au stade de prototype. N'hésite pas écrire dans le groupe de discussino si tu ne comprends pas quelque chose, si tu veux suggérer des modifications ou partager ton mécontentement :)
+  - text: Hi {first_name}, This feature of Trevor is still at the prototype stage. Do not hesitate to write in the discussino group if you do not understand something, if you want to suggest changes or share your dissatisfaction :)
   utter_daily_inform:
-  - text: Afin de pouvoir découvrir les facteurs prédictifs des crises vaso-occlusives et de t'aider à prévenir une détérioration de ton état de santé, j'ai besoin que tu réponde à un questionnaire tous les jours et collecte des données avec ta montre connectée. Je te le rappelerai une fois par jour :)
+  - text: In order to be able to discover the predictive factors of vaso-occlusive crises and to help you prevent a deterioration of your state of health, I need you to answer a questionnaire every day and collect data with your watch connected. I will remind you once a day :)
 actions:
 - action_feedback_initial_form
 - action_fill_slots

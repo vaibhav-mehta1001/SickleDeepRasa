@@ -82,21 +82,20 @@ nlu:
     - est-ce que je parle à un humain ?
 - intent: show_questionairre
   examples: |
-    - Je veux répondre au questioniarre quotidien
-    - Je veux répondre aux questions d'aujourd'hui
-    - questionairre quotidien
-    - Je veux remplir le formulaire
-    - Montrez-moi le formulaire
-    - Remplissage des questions quotidiennes
-    - répondre au questionnaire
-    - mettre à jour le questionnaire
-    - Je veux vous parler de ma santé
-    - Mises à jour sur la santé
-    - Vous tenir au courant de ma santé
-    - remplir le questionnaire
-    - remplir les q
-    - vous parler de ma santé
-    - répondre au questionnaire quotidien
-    - Pas du tout bien
-    - Je veux remplir le questionnaire
-    - remplir la questioniare
+- I want to answer the daily question
+    - I want to answer today's questions
+    - daily questionaire
+    - I want to fill out the form
+    - Show me the form
+    - Filling out daily questions
+    - answer the questionnaire
+    - update the questionnaire
+    - I want to talk to you about my health
+    - Health updates
+    - Keep you informed of my health
+    - fill the questionnaire
+    - fill in the q
+    - tell you about my health
+    - answer the daily questionnaire
+    - I want to complete the questionnaire
+    - complete the questioniare
