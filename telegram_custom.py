@@ -1,37 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@vaibhav-mehta1001 
-RasaHQ
-/
-rasa
-Public
-342
-12.7k
-3.7k
-Code
-Issues
-703
-Pull requests
-114
-Actions
-Projects
-Wiki
-Security
-Insights
-rasa/rasa/core/channels/telegram.py /
-@ancalita
-ancalita Merge remote-tracking branch 'origin/main' into merge_main_2.6.x
-Latest commit 38bb8e9 on May 28
- History
- 14 contributors
-@tmbo@wochinge@erohmensing@m-vdb@tabergma@akelad@ancalita@ricwo@r-m-n@IzidoroBaltazar@rgstephens@federicotdn
- 290 lines (249 sloc)  10.1 KB
-  
 import logging
 from copy import deepcopy
 from sanic import Blueprint, response
@@ -63,7 +29,7 @@ class TelegramOutput(TeleBot, OutputChannel):
     # skipcq: PYL-W0236
     @classmethod
     def name(cls) -> Text:
-        return "telegram"
+        return "telegram_custom"
 
     def __init__(self, access_token: Optional[Text]) -> None:
         super().__init__(access_token)
@@ -176,7 +142,7 @@ class TelegramInput(InputChannel):
 
     @classmethod
     def name(cls) -> Text:
-        return "telegram"
+        return "telegram_custom"
 
     @classmethod
     def from_credentials(cls, credentials: Optional[Dict[Text, Any]]) -> InputChannel:
