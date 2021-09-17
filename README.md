@@ -2,7 +2,7 @@
  Deployment:
  
  In order to deploy this, follow the standard RASA-X installation guide in the RASA documentation, along with custom action sever(very important to do this).
-In general, there is no longer a need to rebuild rasa from open source. However, in order to use French SpaCy embeddings in the future, we may need to use a custom Dockerfile for rasa-core with the installation) for French embeddings. Currently this is not needed as we use simpler, faster embeddings. Finally, after deployment we can use the default Telegram channel, but in order to get Telegram ID directly, we need to use the telegram_custom.py provided here. To do this:
+In general, there is no longer a need to rebuild rasa from open source. However, in order to use French SpaCy embeddings in the future, we may need to use a custom Dockerfile for rasa-core with the installation. Currently this is not needed as we use simpler, faster embeddings. Finally, after deployment we can use the default Telegram channel, but in order to get Telegram ID directly, we need to use the telegram_custom.py provided here. To do this:
  
  
 cd /etc/rasa 
