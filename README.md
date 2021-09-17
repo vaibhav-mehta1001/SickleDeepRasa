@@ -5,25 +5,43 @@
 In general, there is no longer a need to rebuild rasa from open source. However, in order to use French SpaCy embeddings in the future, we may need to use a custom Dockerfile for rasa-core with the installation) for French embeddings. Currently this is not needed as we use simpler, faster embeddings. Finally, after deployment we can use the default Telegram channel, but in order to get Telegram ID directly, we need to use the telegram_custom.py provided here. To do this:
  
  
-cd /etc/rasa
+cd /etc/rasa 
+
 mkdir connectors
+
 touch connectors/__init__.py
+
 touch connectors/telegram_custom.py
+
 nano connectors/telegram_custom.py
+
 Create docker-compose.override.yml
+
 cd /etc/rasa
+
 touch docker-compse.override.yml
+
 nano docker-compose.override.yml
+
 Within docker-compose.override.yml
 
 version: 'xx'
+
 services:
+
   rasa-production:
+  
     volumes:
+    
       - ./connectors:/app/connectors
+      
   rasa-worker:
+  
     volumes:
+    
       - ./connectors:/app/connectors
+      
+      
 Update credentials.yml
 
 
